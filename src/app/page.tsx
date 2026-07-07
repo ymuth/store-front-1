@@ -1,31 +1,194 @@
 import Image from "next/image";
-import { bebasNeue } from "@/lib/fonts";
 import hero from "@/../public/home/hero1.jpg"
+import aboutimg from "@/../public/home/mercedes-sw.jpg"
+import bodyPolish from "@/../public/home/body-polish.jpg"
+import ceramicCoating from "@/../public/home/ceramic-coating.jpeg"
+import interiorCleaning from "@/../public/home/interior-cleaning.jpeg"
+import Link from "next/link";
 
 
 export default function Home() {
   return (
-    <div>
+    <div className="">
 
-      {/* background and tint */}
+      {/* Welcome section */}
+      <div className="min-h-dvh flex">
 
-      <div className="fixed inset-0 -z-10">
-        <Image
-          src={hero}
-          alt="background"
-          fill
-          priority
-          placeholder="blur"
-          className="object-cover"
-        />
+        {/* Background + fade */}
+        <div className="fixed inset-0 -z-10">
+          <Image
+            src={hero}
+            alt="background"
+            fill
+            priority
+            placeholder="blur"
+            className="object-cover "
+          />
+        </div>
+        <div className="-z-10 fixed inset-0 bg-linear-to-b md:bg-linear-to-r from-black via-black/80 via-50% to-transparent" />
+
+
+        {/* Slogan + services link */}
+        <div className="md:m-10 md:p-10 md:max-w-[45%] flex flex-col text-white p-5 m-3">
+
+          <h1 className="md:text-7xl md:text-left text-5xl text-center font-bold border-b-3 p-5 pb-8">Ensuring Excellence in Every Detail</h1>
+          <p className="md:text-left text-2xl p-5 text-center">Expert Detailing and Aftercare for Premium Vehicles</p>
+          <div className="mt-10 mx-auto md:ml-0 p-5 font-semibold">
+            <Link href="/services" className=" mr-5 p-5 font-semibold bg-[#b79c5a] rounded-3xl hover:opacity-90 transition-opacity">View Services</Link>
+            <Link href="/services" className=" p-5 font-semibold bg-[#b79c5a] rounded-3xl hover:opacity-90 transition-opacity">Book services</Link>
+          </div>
+
+          {/* Scroll symbol mobile */}
+          <div className="md:hidden mx-auto my-auto flex-col items-center gap-2 text-white animate-bounce bg-black/10 rounded-full p-5">
+            <span className="text-sm tracking-widest uppercase ">Scroll</span>
+            <h3 className="text-center">↓</h3>
+          </div>
+
+        </div>
+
+        {/* scroll wheel (desktop) */}
+        <div className="hidden md:flex m-auto flex-col items-center gap-2 text-white animate-bounce">
+          <span className="text-sm tracking-widest uppercase ">Scroll</span>
+          <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center p-1">
+            <div className="w-1.5 h-3 bg-white rounded-full animate-pulse" />
+          </div>
+        </div>
+
+
+
       </div>
 
 
-      <div className="-z-10 fixed inset-0 bg-linear-to-l from-transparent to-black" />
-      <div className="text-white m-10 p-10 md:max-w-[40%]">
-        <h1 className="text-7xl font-bold border-b-3 p-3 pb-8">Ensuring Exellence in Quality</h1>
-        <p className="text-2xl p-5">Expert Detailing and Aftercare Service for Premium Vehcicles</p>
+
+      {/* --------------------- */}
+
+
+
+      {/* about section */}
+      <div className="font-poppins min-h-dvh w-full flex p-10 border-y-3 max-w-screen border-gray-500 bg-[#111524] text-black ">
+
+        <div className="flex flex-col md:flex-row md:py-30">
+
+
+          <div className=" justify-center  aspect-square md:min-w-[30%] flex m-3 md:mx-10 rounded-2xl overflow-hidden">
+            <Image
+              src={aboutimg}
+              alt="interior detailing"
+              width={500}
+              height={500}
+              priority
+              placeholder="blur"
+              className=""
+            />
+          </div>
+
+          <div className=" md:mr-10 md:text-left text-center justify-center flex flex-col bg-white mx-3 my-auto rounded-2xl overflow-hidden border-4 border-gray-400 md:my-3 p-10 ">
+
+            <h3 className="md:text-4xl text-3xl font-semibold ">What we do</h3>
+            <p className="py-10 md:text-xl text-lg">We offer precise, high-quality car cleaning services, including interior and exterior cleaning, seat and carpet shampooing, headlight restoration, and body polishing. Entrust your vehicle to us for sparkling results.</p>
+            <Link href="/about" className="md:ml-0 md:mr-auto mx-auto p-5 font-semibold bg-[#b79c5a] rounded-3xl hover:opacity-90 transition-opacity">Learn More</Link>
+
+
+          </div>
+
+        </div>
       </div>
+
+
+
+      {/* --------------------- */}
+
+
+
+      {/* Services section */}
+      <div className="font-poppins min-h-dvh w-full flex flex-col p-10 border-y-3 max-w-screen border-gray-500 bg-[#29304B] text-black">
+
+        <div className="grid flex-1 md:grid-cols-3 gap-10 w-full items-center text-center">
+
+          {/* Body Polishing */}
+          <div>
+
+            <div className="overflow-hidden fill">
+              <Image
+                src={bodyPolish}
+                alt="Body Polishing"
+                width={500}
+                height={500}
+                priority
+                placeholder="blur"
+                className="aspect-square object-cover object-left"
+              />
+            </div>
+            <div className="bg-white size-full p-3 text-center flex flex-col justify-center border-[#b79c5a] border-5 aspect-square">
+              <h3 className="text-xl font-bold p-3">Body Polishing</h3>
+              <p className="text-lg">Car body polishing restores the shine and luster of your car, making it look like new.</p>
+            </div>
+
+          </div>
+
+
+          {/* Interior Cleaning */}
+          <div className="flex md:flex-col flex-col-reverse">
+
+            <div className="bg-white size-full p-3 text-center flex flex-col justify-center border-[#b79c5a] border-5 aspect-square">
+              <h3 className="text-xl font-bold p-3">Interior Cleaning</h3>
+              <p className="text-lg">Our interior cleaning transforms the interior of your vehicle and eliminates dirt and bad odors. Includes Upholstery and carpet shampoo to bring your seats and carpets back to life</p>
+            </div>
+            <div className="aspect-square">
+              <Image
+                src={interiorCleaning}
+                alt="interior detailing w-full"
+                width={500}
+                height={500}
+                priority
+                placeholder="blur"
+                className="aspect-square object-cover"
+              />
+            </div>
+
+          </div>
+
+
+          {/* Cermaic Coating */}
+          <div>
+
+            <div>
+              <Image
+                src={ceramicCoating}
+                alt="Ceramic Coating"
+                width={500}
+                height={500}
+                priority
+                placeholder="blur"
+                className="aspect-square object-cover"
+              />
+            </div>
+            <div className="bg-white size-full p-3 text-center aspect-square flex flex-col justify-center border-[#b79c5a] border-5">
+              <h3 className="text-xl font-bold p-3">Ceramic coating</h3>
+              <p className="text-lg">Our Ceramic coating protects your orignal paint for 3-5 years</p>
+            </div>
+
+          </div>
+
+
+
+
+        </div>
+
+        <Link href="/services" className=" mt-5 mx-auto p-5 font-semibold bg-[#b79c5a] rounded-3xl hover:opacity-90 transition-opacity">View Services</Link>
+
+
+      </div>
+
+      {/* 
+
+      TODO: About Page
+      TODO: services page
+      TODO: Products Page
+      TODO: Testimonials/customers 
+      TODO: CONTACT / SOCIALS
+
+       */}
 
 
 
