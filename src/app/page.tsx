@@ -33,8 +33,8 @@ export default function Home() {
 
           <h1 className="md:text-7xl md:text-left text-5xl text-center font-bold border-b-3 p-5 pb-8">Ensuring Excellence in Every Detail</h1>
           <p className="md:text-left text-2xl p-5 text-center">Expert Detailing and Aftercare for Premium Vehicles</p>
-          <div className="mt-10 mx-auto md:ml-0 p-5 font-semibold">
-            <Link href="/services" className=" mr-5 p-5 font-semibold bg-[#b79c5a] rounded-3xl hover:opacity-90 transition-opacity">View Services</Link>
+          <div className="md:ml-0 mt-10 mx-auto font-semibold flex gap-4 text-center">
+            <Link href="/services" className=" p-5 font-semibold bg-[#b79c5a] rounded-3xl hover:opacity-90 transition-opacity">View Services</Link>
             <Link href="/services" className=" p-5 font-semibold bg-[#b79c5a] rounded-3xl hover:opacity-90 transition-opacity">Book services</Link>
           </div>
 
