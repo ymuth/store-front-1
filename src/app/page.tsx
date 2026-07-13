@@ -65,23 +65,24 @@ export default function Home() {
 
 
       {/* about section */}
-      <div className="font-poppins min-h-dvh w-full flex p-10 border-y-3 max-w-screen border-gray-500 bg-[#111524] text-black justify-center">
+      
+      <div className="font-poppins min-h-dvh w-full flex p-10 md:p-20 border-y-3 border-gray-500 bg-[#111524] text-black">
 
-        <div className="flex flex-col  md:flex-row md:py-30 md:px-10 gap-10">
+        <div className="grid grid-cols-1 mx-auto max-w-7xl md:grid-cols-3 my-auto md:py-30 md:px-10 ">
 
 
-          <div className=" relative aspect-square  ">
+          <div className="relative aspect-square  ">
             <Image
               src={aboutimg}
               alt="interior detailing"
               fill
               priority
               placeholder="blur"
-              className="object-cover"
+              className="object-fill"
             />
           </div>
 
-          <div className="  md:text-left text-center justify-center flex flex-col bg-white   overflow-hidden border-4 border-gray-400 p-10 ">
+          <div className=" mt-10 md:mt-0 md:ml-10 md:col-span-2 md:text-left text-center justify-center flex flex-col bg-white overflow-hidden ring-inset ring-4 ring-gray-400 p-10 ">
 
             <h3 className="md:text-4xl text-3xl font-semibold ">What we do</h3>
             <p className="py-10 md:text-xl text-lg">We offer precise, high-quality car cleaning services, including interior and exterior cleaning, seat and carpet shampooing, headlight restoration, and body polishing. Entrust your vehicle to us for sparkling results.</p>
@@ -91,7 +92,7 @@ export default function Home() {
           </div>
 
         </div>
-        
+
       </div>
 
 
@@ -101,79 +102,84 @@ export default function Home() {
 
 
       {/* Services section */}
-      <div className="font-poppins min-h-dvh w-full flex flex-col p-10 border-y-3 max-w-screen border-gray-500 bg-[#29304B] text-black md:p-20">
+      <div className="font-poppins min-h-dvh w-full max-w-screen border-y-3 justify-center flex p-10 md:p-20 border-gray-500 bg-[#29304B] text-black">
 
-        <div className="grid flex-1 md:grid-cols-3 gap-10 w-full items-center text-center">
 
-          {/* Body Polishing */}
-          <div>
+        <div className=" flex flex-col  max-w-7xl w-full">
 
-            <div className="overflow-hidden relative aspect-square ">
-              <Image
-                src={bodyPolish}
-                alt="Body Polishing"
-                fill
-                priority
-                placeholder="blur"
-                className=" object-cover object-left"
-              />
+          <div className="grid flex-1 md:grid-cols-3 gap-10 w-full items-center text-center">
+
+            {/* Body Polishing */}
+            <div>
+
+              <div className="overflow-hidden relative aspect-square ">
+                <Image
+                  src={bodyPolish}
+                  alt="Body Polishing"
+                  fill
+                  priority
+                  placeholder="blur"
+                  className=" object-cover object-left"
+                />
+              </div>
+              <div className="bg-white size-full p-3 text-center flex flex-col justify-center border-[#b79c5a] border-5 aspect-square">
+                <h3 className="text-xl font-bold p-3">Body Polishing</h3>
+                <p className="text-lg">Car body polishing restores the shine and luster of your car, making it look like new.</p>
+              </div>
+
             </div>
-            <div className="bg-white size-full p-3 text-center flex flex-col justify-center border-[#b79c5a] border-5 aspect-square">
-              <h3 className="text-xl font-bold p-3">Body Polishing</h3>
-              <p className="text-lg">Car body polishing restores the shine and luster of your car, making it look like new.</p>
+
+
+            {/* Interior Cleaning */}
+            <div className="flex flex-col md:flex-col-reverse">
+
+              <div className="aspect-square relative overflow-hidden">
+                <Image
+                  src={interiorCleaning}
+                  alt="interior detailing w-full"
+                  fill
+                  priority
+                  placeholder="blur"
+                  className="object-cover"
+                />
+              </div>
+              <div className="bg-white size-full p-3 text-center flex flex-col justify-center border-[#b79c5a] border-5 aspect-square">
+                <h3 className="text-xl font-bold p-3">Interior Cleaning</h3>
+                <p className="text-lg">Our interior cleaning transforms the interior of your vehicle and eliminates dirt and bad odors. Includes Upholstery and carpet shampoo to bring your seats and carpets back to life</p>
+              </div>
+
             </div>
+
+
+            {/* Cermaic Coating */}
+            <div>
+
+              <div className="relative aspect-square overflow-hidden">
+                <Image
+                  src={ceramicCoating}
+                  alt="Ceramic Coating"
+                  fill
+                  priority
+                  placeholder="blur"
+                  className=" object-cover"
+                />
+              </div>
+              <div className="bg-white size-full p-3 text-center aspect-square flex flex-col justify-center border-[#b79c5a] border-5">
+                <h3 className="text-xl font-bold p-3">Ceramic coating</h3>
+                <p className="text-lg">Our Ceramic coating protects your orignal paint for 3-5 years</p>
+              </div>
+
+            </div>
+
+
+
 
           </div>
 
-
-          {/* Interior Cleaning */}
-          <div className="flex flex-col md:flex-col-reverse">
-
-            <div className="aspect-square relative overflow-hidden">
-              <Image
-                src={interiorCleaning}
-                alt="interior detailing w-full"
-                fill
-                priority
-                placeholder="blur"
-                className="object-cover"
-              />
-            </div>
-            <div className="bg-white size-full p-3 text-center flex flex-col justify-center border-[#b79c5a] border-5 aspect-square">
-              <h3 className="text-xl font-bold p-3">Interior Cleaning</h3>
-              <p className="text-lg">Our interior cleaning transforms the interior of your vehicle and eliminates dirt and bad odors. Includes Upholstery and carpet shampoo to bring your seats and carpets back to life</p>
-            </div>
-
-          </div>
-
-
-          {/* Cermaic Coating */}
-          <div>
-
-            <div className="relative aspect-square overflow-hidden">
-              <Image
-                src={ceramicCoating}
-                alt="Ceramic Coating"
-                fill
-                priority
-                placeholder="blur"
-                className=" object-cover"
-              />
-            </div>
-            <div className="bg-white size-full p-3 text-center aspect-square flex flex-col justify-center border-[#b79c5a] border-5">
-              <h3 className="text-xl font-bold p-3">Ceramic coating</h3>
-              <p className="text-lg">Our Ceramic coating protects your orignal paint for 3-5 years</p>
-            </div>
-
-          </div>
-
-
+          <Link href="/services" className=" mt-5 mx-auto p-5 text-white font-semibold bg-[#b79c5a] rounded-3xl hover:opacity-90 transition-opacity">View Services</Link>
 
 
         </div>
-
-        <Link href="/services" className=" mt-5 mx-auto p-5 text-white font-semibold bg-[#b79c5a] rounded-3xl hover:opacity-90 transition-opacity">View Services</Link>
-
 
       </div>
 
@@ -184,9 +190,9 @@ export default function Home() {
 
 
       {/* Testimonial section */}
-      <div className="font-poppins min-h-dvh w-full flex p-10 border-y-3 max-w-screen border-gray-500 bg-[#111524] text-black ">
+      <div className="font-poppins min-h-dvh w-full flex p-10 border-y-3 max-w-screen border-gray-500 bg-[#111524] text-black  ">
 
-        <div className=" border flex-1  bg-[#29304B] grid md:grid-cols-3 grid-cols-1 p-5 gap-10">
+        <div className=" border flex-1 max-w-7xl mx-auto bg-[#29304B] grid md:grid-cols-3 grid-cols-1 p-5 gap-10">
 
           <div className="text-white p-3 md:border-none flex flex-col gap-2 ">
             <p className="text-center">⭐⭐⭐⭐⭐</p>
