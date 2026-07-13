@@ -39,10 +39,10 @@ export default function Home() {
           </div>
 
           {/* Scroll symbol mobile */}
-          <div className="md:hidden mx-auto my-auto flex-col items-center gap-2 text-white animate-bounce bg-black/10 rounded-full p-5">
+          {/* <div className="md:hidden mx-auto my-auto flex-col items-center gap-2 text-white animate-bounce bg-black/10 rounded-full p-5">
             <span className="text-sm tracking-widest uppercase ">Scroll</span>
             <h3 className="text-center">↓</h3>
-          </div>
+          </div> */}
 
         </div>
 
@@ -65,24 +65,23 @@ export default function Home() {
 
 
       {/* about section */}
-      <div className="font-poppins min-h-dvh w-full flex p-10 border-y-3 max-w-screen border-gray-500 bg-[#111524] text-black ">
+      <div className="font-poppins min-h-dvh w-full flex p-10 border-y-3 max-w-screen border-gray-500 bg-[#111524] text-black justify-center">
 
-        <div className="flex flex-col md:flex-row md:py-30">
+        <div className="flex flex-col  md:flex-row md:py-30 md:px-10 gap-10">
 
 
-          <div className=" justify-center  aspect-square md:min-w-[30%] h-auto flex m-3 md:mx-10  overflow-hidden">
+          <div className=" relative aspect-square  ">
             <Image
               src={aboutimg}
               alt="interior detailing"
-              width={500}
-              height={500}
+              fill
               priority
               placeholder="blur"
-              className=""
+              className="object-cover"
             />
           </div>
 
-          <div className=" md:mr-10 md:text-left text-center justify-center flex flex-col bg-white mx-3 my-auto  overflow-hidden border-4 border-gray-400 md:my-3 p-10 ">
+          <div className="  md:text-left text-center justify-center flex flex-col bg-white   overflow-hidden border-4 border-gray-400 p-10 ">
 
             <h3 className="md:text-4xl text-3xl font-semibold ">What we do</h3>
             <p className="py-10 md:text-xl text-lg">We offer precise, high-quality car cleaning services, including interior and exterior cleaning, seat and carpet shampooing, headlight restoration, and body polishing. Entrust your vehicle to us for sparkling results.</p>
@@ -92,6 +91,7 @@ export default function Home() {
           </div>
 
         </div>
+        
       </div>
 
 
@@ -108,15 +108,14 @@ export default function Home() {
           {/* Body Polishing */}
           <div>
 
-            <div className="overflow-hidden fill">
+            <div className="overflow-hidden relative aspect-square ">
               <Image
                 src={bodyPolish}
                 alt="Body Polishing"
-                width={500}
-                height={500}
+                fill
                 priority
                 placeholder="blur"
-                className="aspect-square object-cover object-left"
+                className=" object-cover object-left"
               />
             </div>
             <div className="bg-white size-full p-3 text-center flex flex-col justify-center border-[#b79c5a] border-5 aspect-square">
@@ -130,15 +129,14 @@ export default function Home() {
           {/* Interior Cleaning */}
           <div className="flex flex-col md:flex-col-reverse">
 
-            <div className="aspect-square">
+            <div className="aspect-square relative overflow-hidden">
               <Image
                 src={interiorCleaning}
                 alt="interior detailing w-full"
-                width={500}
-                height={500}
+                fill
                 priority
                 placeholder="blur"
-                className="aspect-square object-cover"
+                className="object-cover"
               />
             </div>
             <div className="bg-white size-full p-3 text-center flex flex-col justify-center border-[#b79c5a] border-5 aspect-square">
@@ -152,15 +150,14 @@ export default function Home() {
           {/* Cermaic Coating */}
           <div>
 
-            <div>
+            <div className="relative aspect-square overflow-hidden">
               <Image
                 src={ceramicCoating}
                 alt="Ceramic Coating"
-                width={500}
-                height={500}
+                fill
                 priority
                 placeholder="blur"
-                className="aspect-square object-cover"
+                className=" object-cover"
               />
             </div>
             <div className="bg-white size-full p-3 text-center aspect-square flex flex-col justify-center border-[#b79c5a] border-5">
