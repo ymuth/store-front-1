@@ -6,6 +6,11 @@ import ceramicCoating from "@/../public/home/ceramic-coating.jpeg"
 import interiorCleaning from "@/../public/home/interior-cleaning.jpeg"
 import Link from "next/link";
 
+// colours:
+// GOLD:          #b79c5a
+// DarkBlue:      #111524
+// Blue:          #29304B
+// Grey:          gray-500
 
 export default function Home() {
   return (
@@ -65,8 +70,10 @@ export default function Home() {
 
 
       {/* about section */}
-      
-      <div className="font-poppins min-h-dvh w-full flex p-10 md:p-20 border-y-3 border-gray-500 bg-[#111524] text-black">
+
+      <div className="font-poppins min-h-dvh w-full flex flex-col p-10 md:p-20 border-y-3 border-gray-500 bg-[#111524] text-black">
+
+        <h1 className="text-5xl border-b-3 border-white text-white mx-auto text-center font-bold font-sans w-fit pb-3 mb-5 md:mb-0">About Us</h1>
 
         <div className="grid grid-cols-1 mx-auto max-w-7xl md:grid-cols-3 my-auto md:py-30 md:px-10 ">
 
@@ -102,10 +109,11 @@ export default function Home() {
 
 
       {/* Services section */}
-      <div className="font-poppins min-h-dvh w-full max-w-screen border-y-3 justify-center flex p-10 md:p-20 border-gray-500 bg-[#29304B] text-black">
+      <div className="font-poppins min-h-dvh w-full max-w-screen border-y-3  flex flex-col p-10 md:p-20  border-gray-500 bg-[#29304B] text-black">
 
 
-        <div className=" flex flex-col  max-w-7xl w-full">
+        <h1 className="text-5xl border-b-3 border-white text-white mx-auto text-center font-bold font-sans w-fit pb-3 mb-10 ">What we offer</h1>
+        <div className=" flex flex-col mx-auto max-w-7xl w-full my-auto">
 
           <div className="grid flex-1 md:grid-cols-3 gap-10 w-full items-center text-center">
 
@@ -122,7 +130,7 @@ export default function Home() {
                   className=" object-cover object-left"
                 />
               </div>
-              <div className="bg-white size-full p-3 text-center flex flex-col justify-center border-[#b79c5a] border-5 aspect-square">
+              <div className="bg-white size-full p-3 text-center flex flex-col justify-center border-gray-500 border-5 aspect-square">
                 <h3 className="text-xl font-bold p-3">Body Polishing</h3>
                 <p className="text-lg">Car body polishing restores the shine and luster of your car, making it look like new.</p>
               </div>
@@ -143,7 +151,7 @@ export default function Home() {
                   className="object-cover"
                 />
               </div>
-              <div className="bg-white size-full p-3 text-center flex flex-col justify-center border-[#b79c5a] border-5 aspect-square">
+              <div className="bg-white size-full p-3 text-center flex flex-col justify-center border-gray-500 border-5 aspect-square">
                 <h3 className="text-xl font-bold p-3">Interior Cleaning</h3>
                 <p className="text-lg">Our interior cleaning transforms the interior of your vehicle and eliminates dirt and bad odors. Includes Upholstery and carpet shampoo to bring your seats and carpets back to life</p>
               </div>
@@ -164,7 +172,7 @@ export default function Home() {
                   className=" object-cover"
                 />
               </div>
-              <div className="bg-white size-full p-3 text-center aspect-square flex flex-col justify-center border-[#b79c5a] border-5">
+              <div className="bg-white size-full p-3 text-center aspect-square flex flex-col justify-center border-gray-500 border-5">
                 <h3 className="text-xl font-bold p-3">Ceramic coating</h3>
                 <p className="text-lg">Our Ceramic coating protects your orignal paint for 3-5 years</p>
               </div>
@@ -176,7 +184,7 @@ export default function Home() {
 
           </div>
 
-          <Link href="/services" className=" mt-5 mx-auto p-5 text-white font-semibold bg-[#b79c5a] rounded-3xl hover:opacity-90 transition-opacity">View Services</Link>
+          <Link href="/services" className=" mt-10 mx-auto p-5 text-white font-semibold bg-[#b79c5a] rounded-3xl hover:opacity-90 transition-opacity">View Services</Link>
 
 
         </div>
@@ -190,9 +198,12 @@ export default function Home() {
 
 
       {/* Testimonial section */}
-      <div className="font-poppins min-h-dvh w-full flex p-10 border-y-3 max-w-screen border-gray-500 bg-[#111524] text-black  ">
+      <div className="font-poppins min-h-dvh w-full p-10 border-y-3 max-w-screen border-gray-500 bg-[#111524] text-black  ">
 
-        <div className=" border flex-1 max-w-7xl mx-auto bg-[#29304B] grid md:grid-cols-3 grid-cols-1 p-5 gap-10">
+
+        <h1 className="text-5xl border-b-3 border-white text-white mx-auto text-center font-bold font-sans w-fit pb-3 mb-10 ">Testimonials</h1>
+
+        <div className=" m-augray-500border max-w-7xl  bg-[#29304B] grid md:grid-cols-3 grid-cols-1 p-5 gap-10">
 
           <div className="text-white p-3 md:border-none flex flex-col gap-2 ">
             <p className="text-center">⭐⭐⭐⭐⭐</p>
