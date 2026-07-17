@@ -233,6 +233,11 @@ export default function Home() {
 
       {/*  --------------------------  */}
 
+          {/* TODO: Booking form here */}
+
+
+      {/*  --------------------------  */}
+
 
 
       {/* Testimonial section */}
@@ -253,7 +258,7 @@ export default function Home() {
             <p >Oliver R.</p>
             <p className="md:text-left mt-3 font-semibold italic text-lg ">"Professional from start to finish. They arrived on time, explained everything they were doing, and my car came back looking immaculate. I'll definitely be booking regular maintenance details."</p>
           </div>
-          <div className="text-white p-3 flex flex-col gap-2 ">
+          <div className="text-center text-white p-3 flex flex-col gap-2 ">
             <p >⭐⭐⭐⭐⭐</p>
             <p >Joseph M.</p>
             <p className="md:text-left mt-3 font-semibold italic text-lg ">"I honestly didn't think the seats could be saved after years of family use, but they managed to remove stains I thought were permanent. Great attention to detail and fantastic customer service."</p>
