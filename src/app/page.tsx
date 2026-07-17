@@ -5,6 +5,8 @@ import bodyPolish from "@/../public/home/body-polish.jpg"
 import ceramicCoating from "@/../public/home/ceramic-coating.jpeg"
 import interiorCleaning from "@/../public/home/interior-cleaning.jpeg"
 import Link from "next/link";
+import ProductCard from "@/components/productsCard";
+import { products } from "@/data/products";
 
 // colours:
 // GOLD:          #b79c5a
@@ -197,13 +199,58 @@ export default function Home() {
 
 
 
+
+      {/* Products */}
+
+      <div className="font-poppins min-h-dvh w-full flex flex-col p-10 md:p-20 border-y-3 border-gray-500 bg-[#111524] text-black">
+
+        <h1 className="text-5xl border-b-3 border-white text-white mx-auto text-center font-bold font-sans w-fit pb-3 mb-5 md:mb-0">Products</h1>
+
+
+        <div className="my-auto pt-5 md:justify-center flex flex-row gap-4 overflow-x-auto pb-3 scrollbar-thumb-black scrollbar-track-gray-500/50">
+
+
+          {products.slice(0, 4).map((product) => (
+            <ProductCard
+              key={product.id}
+              name={product.name}
+              price={product.price}
+              image={product.image}
+            />
+          ))}
+
+          <div className="text-black font-bold fill rounded-3xl w-60 shrink-0 bg-white relative border-gray-500 border-3  flex flex-col justify-center">
+            <div className="">
+              <h1 className="text-center text-xl">View More Products</h1>
+              <div className="size-12 border-3 mx-auto border-black rounded-full flex justify-center p-1">
+                <div className="text-2xl m-auto">
+                  →
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+
+
+        </div>
+
+
+      </div>
+
+
+
+      {/*  --------------------------  */}
+
+
+
       {/* Testimonial section */}
-      <div className="font-poppins min-h-dvh w-full p-10 border-y-3 max-w-screen border-gray-500 bg-[#111524] text-black  ">
+      <div className="font-poppins min-h-dvh w-full p-10 border-y-3 max-w-screen border-gray-500 bg-[#29304B] text-black  ">
 
 
         <h1 className="text-5xl border-b-3 border-white text-white mx-auto text-center font-bold font-sans w-fit pb-3 mb-10 ">Testimonials</h1>
 
-        <div className=" m-augray-500border max-w-7xl  bg-[#29304B] grid md:grid-cols-3 grid-cols-1 p-5 gap-10">
+        <div className=" m-augray-500border max-w-7xl  bg-[#111524] grid md:grid-cols-3 grid-cols-1 p-5 gap-10">
 
           <div className="text-white p-3 md:border-none flex flex-col gap-2 ">
             <p className="text-center">⭐⭐⭐⭐⭐</p>
