@@ -34,9 +34,9 @@ export default function ProductCard({name, price, image}: ProductCardProps) {
                         }
                     </div>
 
-                    <div className=" text-center p-2 bg-white border-t-gray-500 border-t-3 min-h-24">
-                        <h3 className="font-semibold">{name}</h3>
-                        <p className="italic text-gray-500">{price.toString()}</p>
+                    <div className=" text-center p-2 bg-[#5b5a5a]  min-h-24">
+                        <h3 className="font-semibold text-white">{name}</h3>
+                        <p className="italic text-gray-300">{price.toString()}</p>
                     </div>
 
             </div>
