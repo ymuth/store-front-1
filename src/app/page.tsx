@@ -1,15 +1,17 @@
 import Image from "next/image";
-import hero from "@/../public/home/hero1.jpg"
+import hero from "@/../public/home/body-polish.jpg"
 import aboutimg from "@/../public/home/mercedes-sw.jpg"
 import bodyPolish from "@/../public/home/body-polish.jpg"
 import ceramicCoating from "@/../public/home/ceramic-coating.jpeg"
 import interiorCleaning from "@/../public/home/interior-cleaning.jpeg"
+import aboutBD from "@/../public/home/twin-white.jpg"
+import BD2 from "@/../public/home/merc.jpg"
 import Link from "next/link";
 import ProductCard from "@/components/productsCard";
 import { products } from "@/data/products";
 
 // colours:
-// GOLD:          #b79c5a
+// GOLD:          #b79c5a 
 // DarkBlue:      #111524
 // Blue:          #29304B
 // Grey:          gray-500
@@ -74,11 +76,24 @@ export default function Home() {
 
       {/* about section */}
 
-      <div className="font-poppins relative w-full flex flex-col p-10 md:p-20  bg-[#2f2e2e] ">
+      <div className="font-poppins relative w-full flex flex-col p-10 bg-[#191919] ">
+
+        {/* Background + fade */}
+        {/* <div className="absolute inset-0 -z-10">
+          <Image
+            src={aboutBD}
+            alt="background"
+            fill
+            priority
+            placeholder="blur"
+            className="object-cover "
+          />
+        </div>
+        <div className="-z-10 fixed inset-0 bg-linear-to-b md:bg-linear-to-b from-black to-transparent" /> */}
 
         <h1 className="text-5xl border-b-3 border-white text-white mx-auto text-center  font-bold  w-fit pb-3 mb-5 md:mb-0">About Us</h1>
 
-        <div className="grid grid-cols-1 grid-rows-3 w-fit min-h-fit md:grid-cols-10 md:grid-rows-3 my-auto py-5 md:m-10">
+        <div className="grid grid-cols-1 grid-rows-3 w-fit min-h-fit md:grid-cols-10 md:grid-rows-3 my-auto py-5 md:mt-10">
 
 
           <div className="relative col-span-1 md:col-[1/7] md:row-[1/3]  ">
@@ -112,7 +127,20 @@ export default function Home() {
 
 
       {/* Services section */}
-      <div className="font-poppins  w-full max-w-screen  flex flex-col p-10 md:p-20 bg-[#191919] text-white">
+      <div className="font-poppins relative w-full max-w-screen  flex flex-col p-10 md:p-20 bg-black/50 text-white">
+
+        {/* Background + fade */}
+        <div className="absolute inset-0 -z-10">
+          <Image
+            src={BD2}
+            alt="background"
+            fill
+            priority
+            placeholder="blur"
+            className="object-fill "
+          />
+        </div>
+        <div className="-z-10 fixed inset-0 bg-linear-to-b md:bg-linear-to-b from-black to-transparent" />
 
 
         <h1 className="text-5xl border-b-3 border-white text-white mx-auto text-center font-bold font-sans w-fit pb-3 mb-10 ">What we offer</h1>
@@ -203,7 +231,7 @@ export default function Home() {
 
       {/* Products */}
 
-      <div className="font-poppins  w-full flex flex-col p-10 md:p-20 bg-[#2f2e2e] text-black">
+      <div className="font-poppins  w-full flex flex-col p-10 md:p-20 bg-[#191919] text-black">
 
         <h1 className="text-5xl border-b-3 border-white text-white mx-auto text-center font-bold font-sans w-fit pb-3 mb-5 md:mb-0">Products</h1>
 
@@ -233,7 +261,7 @@ export default function Home() {
 
       {/*  --------------------------  */}
 
-          {/* TODO: Booking form here */}
+      {/* TODO: Booking form here */}
 
 
       {/*  --------------------------  */}
@@ -241,12 +269,12 @@ export default function Home() {
 
 
       {/* Testimonial section */}
-      <div className="font-poppins  w-full p-10  bg-[#191919] text-black  ">
+      <div className="font-poppins  w-full p-10  bg-[#2f2e2e] text-black  ">
 
 
         <h1 className="text-5xl border-b-3 border-white text-white mx-auto text-center font-bold font-sans w-fit pb-3 mb-10 ">Testimonials</h1>
 
-        <div className=" m-augray-500border max-w-7xl  bg-[#2f2e2e] grid md:grid-cols-3 grid-cols-1 p-5 gap-10">
+        <div className="max-w-7xl  bg-[#191919] grid md:grid-cols-3 grid-cols-1 p-5 gap-10">
 
           <div className="text-center text-white p-3 flex flex-col gap-2 ">
             <p >⭐⭐⭐⭐⭐</p>
@@ -291,9 +319,10 @@ export default function Home() {
 
       {/* 
 
-      TODO: About Page
-      TODO: services page
-      TODO: Products Page
+      TODO: Booking section
+      TODO: About Page - pretty quick
+      TODO: services page - add the booking section? lead to a form that goes to email or connects to calender
+      TODO: Products Page - 
       TODO: Testimonials/customers 
       TODO: CONTACT / SOCIALS
 
