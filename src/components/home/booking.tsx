@@ -1,8 +1,41 @@
+"use client"
 import Image from "next/image";
-import Link from "next/link";
 import bookingBD from "@/../public/home/twin-white.jpg"
+import { useState } from "react";
 
 export default function BookingSection() {
+
+    const [form, setForm] = useState({
+        name: "",
+        email: "",
+        phone: "",
+        vehicle: "",
+        service: "Exterior Detail",
+        date: "",
+        message: ""
+    })
+
+    async function submit(e: React.FormEvent) {
+        e.preventDefault();
+
+        try {
+            const res = await fetch("/api/contact", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(form)
+            });
+
+            if (!res.ok) {
+                throw new Error("Failed");
+            }
+
+            window.alert("booking request sent")
+        } catch (error) {
+            window.alert("Something went wrong")
+        }
+    }
 
     return (
 
@@ -24,24 +57,29 @@ export default function BookingSection() {
                         className="object-cover object-center "
                     />
                 </div>
-
                 <h1 className="text-5xl border-b-3 border-white text-white mx-auto text-center font-bold w-fit pb-3 mb-10">
                     Secure a Booking Today
                 </h1>
 
-                <form className="mx-auto w-full max-w-5xl bg-[#191919] p-8 rounded-xl border border-gray-600 shadow-xl">
+
+
+                <form onSubmit={submit} className="mx-auto w-full max-w-5xl bg-[#191919] p-8 rounded-xl border border-gray-600 shadow-xl">
 
                     <div className="grid md:grid-cols-2 gap-6">
 
                         {/* Name */}
                         <div className="flex flex-col">
-                            <label className="text-white mb-2">Full Name</label>
+                            <label className="text-white mb-2">Name*</label>
                             <input
+                                required
                                 type="text"
                                 placeholder="e.g John Smith..."
+                                onChange={(e) => setForm({ ...form, name: e.target.value })}
+                                value={form.name}
                                 className="rounded-lg bg-[#2a2a2a] border border-gray-600 p-3 text-white outline-none focus:border-[#b79c5a]"
                             />
                         </div>
+
 
                         {/* Phone */}
                         <div className="flex flex-col">
@@ -49,35 +87,50 @@ export default function BookingSection() {
                             <input
                                 type="tel"
                                 placeholder="07..."
+                                onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                                value={form.phone}
                                 className="rounded-lg bg-[#2a2a2a] border border-gray-600 p-3 text-white outline-none focus:border-[#b79c5a]"
                             />
                         </div>
+
 
                         {/* Email */}
                         <div className="flex flex-col">
-                            <label className="text-white mb-2">Email</label>
+                            <label className="text-white mb-2">Email*</label>
                             <input
+                                required
                                 type="email"
                                 placeholder="example@email.com"
+                                onChange={(e) => setForm({ ...form, email: e.target.value })}
+                                value={form.email}
                                 className="rounded-lg bg-[#2a2a2a] border border-gray-600 p-3 text-white outline-none focus:border-[#b79c5a]"
                             />
                         </div>
+
 
                         {/* Vehicle */}
                         <div className="flex flex-col">
-                            <label className="text-white mb-2">Vehicle</label>
+                            <label className="text-white mb-2">Vehicle*</label>
                             <input
+                                required
                                 type="text"
                                 placeholder="e.g. BMW 3 Series 2014"
+                                onChange={(e) => setForm({ ...form, vehicle: e.target.value })}
+                                value={form.vehicle}
                                 className="rounded-lg bg-[#2a2a2a] border border-gray-600 p-3 text-white outline-none focus:border-[#b79c5a]"
                             />
                         </div>
 
+
                         {/* Service */}
                         <div className="flex flex-col">
-                            <label className="text-white mb-2">Service Required</label>
+                            <label className="text-white mb-2">Service Required*</label>
 
-                            <select className="rounded-lg bg-[#2a2a2a] border border-gray-600 p-3 text-white outline-none focus:border-[#b79c5a]">
+                            <select className="rounded-lg bg-[#2a2a2a] border border-gray-600 p-3 text-white outline-none focus:border-[#b79c5a]"
+                                value={form.service}
+                                onChange={(e) => setForm({ ...form, service: e.target.value })}
+                                required>
+
                                 <option>Exterior Detail</option>
                                 <option>Interior Detail</option>
                                 <option>Full Detail</option>
@@ -88,16 +141,20 @@ export default function BookingSection() {
                             </select>
                         </div>
 
+
                         {/* Preferred Date */}
                         <div className="flex flex-col">
                             <label className="text-white mb-2">Preferred Date</label>
                             <input
                                 type="date"
+                                onChange={(e) => setForm({ ...form, date: e.target.value })}
+                                value={form.date}
                                 className="rounded-lg bg-[#2a2a2a] border border-gray-600 p-3 text-white outline-none focus:border-[#b79c5a]"
                             />
                         </div>
 
                     </div>
+
 
                     {/* Notes */}
                     <div className="flex flex-col mt-6">
@@ -108,22 +165,24 @@ export default function BookingSection() {
                         <textarea
                             rows={6}
                             placeholder="Tell us anything you'd like us to know about your vehicle..."
+                            onChange={(e) => setForm({ ...form, message: e.target.value })}
+                            value={form.message}
                             className="rounded-lg bg-[#2a2a2a] border border-gray-600 p-3 text-white outline-none focus:border-[#b79c5a] resize-none"
                         />
                     </div>
 
-                    <div className="flex md:flex-row flex-col gap-6 pt-10 justify-between ">
 
+                    <div className="flex md:flex-row flex-col gap-6 pt-10 justify-between ">
                         <button
                             type="submit"
-                            className=" p-5 text-white font-semibold bg-linear-to-r from-purple-400 via-purple-500 to-purple-600 hover:bg-linear-to-br rounded-3xl hover:opacity-90 transition-opacity"
+                            className=" p-5 text-white font-semibold bg-linear-to-r from-amber-400 via-amber-500 to-amber-600 hover:bg-linear-to-br rounded-3xl hover:opacity-90 transition-opacity"
                         >
                             Request Booking
                         </button>
+
                         <div className=" text-gray-500 my-auto">
                             <p>*We'd love to hear from you, feel free to contact us for a quote!</p>
                         </div>
-
                     </div>
 
                 </form>
