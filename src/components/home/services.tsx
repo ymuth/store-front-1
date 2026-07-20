@@ -46,7 +46,7 @@ export default function ServicesSection() {
                                     className=" object-cover object-left"
                                 />
                             </div>
-                            <div className="bg-[#5b5a5a] size-full p-3 text-center flex flex-col justify-center aspect-square">
+                            <div className="bg-[#5b5a5a] size-full p-3 text-center flex flex-col justify-center-safe aspect-square overflow-y-scroll scrollbar-thin scrollbar-thumb-black scrollbar-track-gray-500/50">
                                 <h3 className="text-xl font-bold p-3">Body Polishing</h3>
                                 <p className="text-lg">Car body polishing restores the shine and luster of your car, making it look like new.</p>
                             </div>
@@ -67,7 +67,7 @@ export default function ServicesSection() {
                                     className="object-cover"
                                 />
                             </div>
-                            <div className="bg-[#5b5a5a] size-full p-3 text-center flex flex-col justify-center  aspect-square">
+                            <div className="bg-[#5b5a5a] size-full p-3 text-center flex flex-col justify-center-safe  aspect-square overflow-y-scroll scrollbar-thin scrollbar-thumb-black scrollbar-track-gray-500/50">
                                 <h3 className="text-xl font-bold p-3">Interior Cleaning</h3>
                                 <p className="text-lg">Our interior cleaning transforms the interior of your vehicle and eliminates dirt and bad odors. Includes Upholstery and carpet shampoo to bring your seats and carpets back to life</p>
                             </div>
@@ -88,7 +88,7 @@ export default function ServicesSection() {
                                     className=" object-cover"
                                 />
                             </div>
-                            <div className="bg-[#5b5a5a] size-full p-3 text-center aspect-square flex flex-col justify-center ">
+                            <div className="bg-[#5b5a5a] size-full p-3 text-center aspect-square flex flex-col justify-center-safe overflow-y-scroll scrollbar-thin scrollbar-thumb-black scrollbar-track-gray-500/50 ">
                                 <h3 className="text-xl font-bold p-3">Ceramic coating</h3>
                                 <p className="text-lg">Our Ceramic coating protects your orignal paint for 3-5 years</p>
                             </div>

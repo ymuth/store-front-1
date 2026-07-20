@@ -11,7 +11,7 @@ export default function AboutSection() {
 
                 <h1 className="text-5xl border-b-3 border-white text-white mx-auto text-center  font-bold  w-fit pb-3 mb-5 md:mb-0">About Us</h1>
 
-                <div className="grid grid-cols-1 grid-rows-3 w-fit min-h-fit md:grid-cols-10 md:grid-rows-3 my-auto py-5 md:mt-10">
+                <div className="grid grid-cols-1 grid-rows-3 w-fit min-h-fit max-w-7xl mx-auto md:grid-cols-10 md:grid-rows-3 my-auto py-5 md:mt-10">
 
 
                     <div className="relative col-span-1 md:col-[1/7] md:row-[1/3]  ">
