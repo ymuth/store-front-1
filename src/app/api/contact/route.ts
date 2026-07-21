@@ -1,7 +1,7 @@
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-const recipient = process.env.RECIPIENT;
+const recipient = process.env.BUSINESS_EMAIL;
 
 
 export async function POST(req: Request) {
@@ -10,7 +10,7 @@ export async function POST(req: Request) {
     try {
 
         const body = await req.json();
-        const { name, email, phone, service, message } = body;
+        const { name, email, phone, vehicle, service, date, message } = body;
         if (!recipient) {
             return Response.json(
                 { error: "Recipient email not configured" },
@@ -28,7 +28,9 @@ export async function POST(req: Request) {
             <p><b>Name:</b> ${name}</p>
             <p><b>Email:</b> ${email}</p>
             <p><b>Phone:</b> ${phone}</p>
+            <p><b>Vehicle:</b> ${vehicle}</p>
             <p><b>Service:</b> ${service}</p>
+            <p><b>Requested date:</b> ${date}</p>
             <p><b>Message:</b> ${message}</p>
             `,
         });

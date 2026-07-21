@@ -65,26 +65,28 @@ export default function BookingSection() {
 
                 <form onSubmit={submit} className="mx-auto w-full max-w-5xl bg-[#191919] p-8 rounded-xl border border-gray-600 shadow-xl">
 
-                    <div className="grid md:grid-cols-2 gap-6">
+                    <div className="grid md:grid-cols-2 gap-6 overflow-x-auto">
 
                         {/* Name */}
                         <div className="flex flex-col">
-                            <label className="text-white mb-2">Name*</label>
+                            <label htmlFor="name" className="text-white mb-2">Name*</label>
                             <input
+                                name="name"
                                 required
                                 type="text"
                                 placeholder="e.g John Smith..."
                                 onChange={(e) => setForm({ ...form, name: e.target.value })}
                                 value={form.name}
-                                className="rounded-lg bg-[#2a2a2a] border border-gray-600 p-3 text-white outline-none focus:border-[#b79c5a]"
+                                className=" rounded-lg bg-[#2a2a2a] border border-gray-600 p-3 text-white outline-none focus:border-[#b79c5a]"
                             />
                         </div>
 
 
                         {/* Phone */}
                         <div className="flex flex-col">
-                            <label className="text-white mb-2">Phone Number</label>
+                            <label htmlFor="phone number" className="text-white mb-2">Phone Number</label>
                             <input
+                                name="phone number"
                                 type="tel"
                                 placeholder="07..."
                                 onChange={(e) => setForm({ ...form, phone: e.target.value })}
@@ -96,8 +98,9 @@ export default function BookingSection() {
 
                         {/* Email */}
                         <div className="flex flex-col">
-                            <label className="text-white mb-2">Email*</label>
+                            <label htmlFor="email" className="text-white mb-2">Email*</label>
                             <input
+                                name="email"
                                 required
                                 type="email"
                                 placeholder="example@email.com"
@@ -110,8 +113,9 @@ export default function BookingSection() {
 
                         {/* Vehicle */}
                         <div className="flex flex-col">
-                            <label className="text-white mb-2">Vehicle*</label>
+                            <label htmlFor="vehicle" className="text-white mb-2">Vehicle*</label>
                             <input
+                                name="vehicle"
                                 required
                                 type="text"
                                 placeholder="e.g. BMW 3 Series 2014"
@@ -124,9 +128,10 @@ export default function BookingSection() {
 
                         {/* Service */}
                         <div className="flex flex-col">
-                            <label className="text-white mb-2">Service Required*</label>
+                            <label htmlFor="service" className="text-white mb-2">Service Required*</label>
 
                             <select className="rounded-lg bg-[#2a2a2a] border border-gray-600 p-3 text-white outline-none focus:border-[#b79c5a]"
+                                name="service"
                                 value={form.service}
                                 onChange={(e) => setForm({ ...form, service: e.target.value })}
                                 required>
@@ -144,8 +149,9 @@ export default function BookingSection() {
 
                         {/* Preferred Date */}
                         <div className="flex flex-col">
-                            <label className="text-white mb-2">Preferred Date</label>
+                            <label htmlFor="date" className="text-white mb-2">Preferred Date</label>
                             <input
+                                name="date"
                                 type="date"
                                 onChange={(e) => setForm({ ...form, date: e.target.value })}
                                 value={form.date}
@@ -158,11 +164,12 @@ export default function BookingSection() {
 
                     {/* Notes */}
                     <div className="flex flex-col mt-6">
-                        <label className="text-white mb-2">
+                        <label htmlFor="notes" className="text-white mb-2">
                             Additional Information
                         </label>
 
                         <textarea
+                            name="notes"
                             rows={6}
                             placeholder="Tell us anything you'd like us to know about your vehicle..."
                             onChange={(e) => setForm({ ...form, message: e.target.value })}
