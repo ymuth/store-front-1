@@ -65,19 +65,21 @@ export default function BookingSection() {
 
                 <form onSubmit={submit} className="mx-auto w-full max-w-5xl bg-[#191919] p-8 rounded-xl border border-gray-600 shadow-xl">
 
-                    <div className="grid md:grid-cols-2 gap-6 overflow-x-auto">
+                    <div className="grid md:grid-cols-2 gap-6 overflow-x-clip">
 
                         {/* Name */}
                         <div className="flex flex-col">
                             <label htmlFor="name" className="text-white mb-2">Name*</label>
                             <input
+                                id="name"
                                 name="name"
+                                autoComplete="on"
                                 required
                                 type="text"
                                 placeholder="e.g John Smith..."
                                 onChange={(e) => setForm({ ...form, name: e.target.value })}
                                 value={form.name}
-                                className=" rounded-lg bg-[#2a2a2a] border border-gray-600 p-3 text-white outline-none focus:border-[#b79c5a]"
+                                className="rounded-lg bg-[#2a2a2a] border border-gray-600 p-3 text-white outline-none focus:border-[#b79c5a]"
                             />
                         </div>
 
@@ -86,7 +88,8 @@ export default function BookingSection() {
                         <div className="flex flex-col">
                             <label htmlFor="phone number" className="text-white mb-2">Phone Number</label>
                             <input
-                                name="phone number"
+                                id="phone number"
+                                autoComplete="on"
                                 type="tel"
                                 placeholder="07..."
                                 onChange={(e) => setForm({ ...form, phone: e.target.value })}
@@ -100,7 +103,8 @@ export default function BookingSection() {
                         <div className="flex flex-col">
                             <label htmlFor="email" className="text-white mb-2">Email*</label>
                             <input
-                                name="email"
+                                id="email"
+                                autoComplete="on"
                                 required
                                 type="email"
                                 placeholder="example@email.com"
@@ -115,7 +119,7 @@ export default function BookingSection() {
                         <div className="flex flex-col">
                             <label htmlFor="vehicle" className="text-white mb-2">Vehicle*</label>
                             <input
-                                name="vehicle"
+                                id="vehicle"
                                 required
                                 type="text"
                                 placeholder="e.g. BMW 3 Series 2014"
@@ -131,7 +135,7 @@ export default function BookingSection() {
                             <label htmlFor="service" className="text-white mb-2">Service Required*</label>
 
                             <select className="rounded-lg bg-[#2a2a2a] border border-gray-600 p-3 text-white outline-none focus:border-[#b79c5a]"
-                                name="service"
+                                id="service"
                                 value={form.service}
                                 onChange={(e) => setForm({ ...form, service: e.target.value })}
                                 required>
@@ -151,7 +155,7 @@ export default function BookingSection() {
                         <div className="flex flex-col">
                             <label htmlFor="date" className="text-white mb-2">Preferred Date</label>
                             <input
-                                name="date"
+                                id="date"
                                 type="date"
                                 onChange={(e) => setForm({ ...form, date: e.target.value })}
                                 value={form.date}
@@ -169,7 +173,7 @@ export default function BookingSection() {
                         </label>
 
                         <textarea
-                            name="notes"
+                            id="notes"
                             rows={6}
                             placeholder="Tell us anything you'd like us to know about your vehicle..."
                             onChange={(e) => setForm({ ...form, message: e.target.value })}
