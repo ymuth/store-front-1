@@ -38,7 +38,7 @@ export default function TestimonialsSection() {
                         <p >Thomas K.</p>
                         <p className="md:text-left mt-3 font-semibold italic text-lg ">"Excellent value for money. Every corner of the car was spotless, from the wheels to the dashboard vents. It's clear they genuinely care about the quality of their work."</p>
                     </div>
-                    <div className="text-center text-white p-5 bg-[#5b5a5a] flex flex-col gap-2 mx-auto justify-center-safe">
+                    <div className="md:aspect-auto md:order-last order-first aspect-square text-center text-white p-5 bg-[#5b5a5a] flex flex-col gap-2 mx-auto justify-center-safe">
                         <h1 className="  text-lg">Help us improve</h1>
                         <p className="  text-lg">We'd love to know how your experience went!</p>
                         <Link href="/services" className=" mx-auto p-5 text-white font-semibold bg-linear-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-linear-to-br rounded-3xl hover:opacity-90 transition-opacity">Leave a Review</Link>
