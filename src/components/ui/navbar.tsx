@@ -6,8 +6,9 @@ export default function NavBar() {
     const [open, setOpen] = useState(false);
 
     const NAV_LINKS = [
-        { label: "Products", href: "/products" },
         { label: "Services", href: "/services" },
+        { label: "Products", href: "/products" },
+        { label: "About", href: "/about" },
         { label: "Contact Us", href: "/contact" },
     ]
 
@@ -28,7 +29,7 @@ export default function NavBar() {
                         <Link
                             key={link.href}
                             href={link.href}
-                            className="hover:border-b-2"
+                            className="font-semibold hover:text-amber-400"
                             onClick={() => setOpen(false)}
                         >
                             {link.label}
@@ -55,7 +56,7 @@ export default function NavBar() {
                                 <Link
                                     key={link.href}
                                     href={link.href}
-                                    className="hover:border-b-2 mr-auto"
+                                    className="font-semibold hover:text-amber-400 focus:text-amber-400 mr-auto"
                                     onClick={() => setOpen(false)}
                                 >
                                     {link.label}
