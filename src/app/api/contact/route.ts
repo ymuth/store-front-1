@@ -10,7 +10,7 @@ export async function POST(req: Request) {
     try {
 
         const body = await req.json();
-        const { name, email, phone, vehicle, service, date, message } = body;
+        const { name, email, phone, vehicle, service, date, vehicle_notes } = body;
         if (!recipient) {
             return Response.json(
                 { error: "Recipient email not configured" },
@@ -31,7 +31,7 @@ export async function POST(req: Request) {
             <p><b>Vehicle:</b> ${vehicle}</p>
             <p><b>Service:</b> ${service}</p>
             <p><b>Requested date:</b> ${date}</p>
-            <p><b>Message:</b> ${message}</p>
+            <p><b>Additional Info:</b> ${vehicle_notes}</p>
             `,
         });
 

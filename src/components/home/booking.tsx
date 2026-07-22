@@ -12,7 +12,7 @@ export default function BookingSection() {
         vehicle: "",
         service: "Exterior Detail",
         date: "",
-        message: ""
+        vehicle_notes: ""
     })
     const [status, setStatus] = useState("");
     const [error, setError] = useState("");
@@ -90,7 +90,7 @@ export default function BookingSection() {
                             <input
                                 id="name"
                                 name="name"
-                                autoComplete="on"
+                                autoComplete="name"
                                 required
                                 type="text"
                                 placeholder="e.g John Smith..."
@@ -106,7 +106,8 @@ export default function BookingSection() {
                             <label htmlFor="phone number" className="text-white mb-2">Phone Number</label>
                             <input
                                 id="phone"
-                                autoComplete="on"
+                                name="phone"
+                                autoComplete="tel"
                                 type="tel"
                                 placeholder="07..."
                                 onChange={(e) => setForm({ ...form, phone: e.target.value })}
@@ -121,7 +122,8 @@ export default function BookingSection() {
                             <label htmlFor="email" className="text-white mb-2">Email*</label>
                             <input
                                 id="email"
-                                autoComplete="on"
+                                name="email"
+                                autoComplete="email"
                                 required
                                 type="email"
                                 placeholder="example@email.com"
@@ -137,6 +139,7 @@ export default function BookingSection() {
                             <label htmlFor="vehicle" className="text-white mb-2">Vehicle*</label>
                             <input
                                 id="vehicle"
+                                name="vehicle"
                                 required
                                 type="text"
                                 placeholder="e.g. BMW 3 Series 2014"
@@ -153,6 +156,7 @@ export default function BookingSection() {
 
                             <select className="w-full min-w-0 rounded-lg bg-[#2a2a2a] border border-gray-600 p-3 text-white outline-none focus:border-[#b79c5a]"
                                 id="service"
+                                name="service"
                                 value={form.service}
                                 onChange={(e) => setForm({ ...form, service: e.target.value })}
                                 required>
@@ -173,6 +177,7 @@ export default function BookingSection() {
                             <label htmlFor="date" className="text-white mb-2">Preferred Date</label>
                             <input
                                 id="date"
+                                name="date"
                                 type="date"
                                 onChange={(e) => setForm({ ...form, date: e.target.value })}
                                 value={form.date}
@@ -191,10 +196,13 @@ export default function BookingSection() {
 
                         <textarea
                             id="notes"
+                            name="vehicle_notes"
+                            autoComplete="off"
                             rows={6}
-                            placeholder="Tell us anything you'd like us to know about your vehicle..."
-                            onChange={(e) => setForm({ ...form, message: e.target.value })}
-                            value={form.message}
+                            data-bwignore="true"
+                            placeholder="Tell us anything you'd like us to know about your vehicle... (e.g. colour, reg no. etc.)"
+                            onChange={(e) => setForm({ ...form, vehicle_notes: e.target.value })}
+                            value={form.vehicle_notes}
                             className="rounded-lg bg-[#2a2a2a] border border-gray-600 p-3 text-white outline-none focus:border-[#b79c5a] resize-none"
                         />
                     </div>
