@@ -63,7 +63,7 @@ export default function BookingSection() {
 
 
 
-                <form onSubmit={submit} className="mx-auto w-full max-w-5xl bg-[#191919] p-8 rounded-xl border border-gray-600 shadow-xl">
+                <form onSubmit={submit} className="mx-auto md:w-full max-w-5xl bg-[#191919] p-8 rounded-xl border border-gray-600 shadow-xl">
 
                     <div className="grid md:grid-cols-2 gap-6 overflow-x-clip">
 
