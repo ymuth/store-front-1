@@ -14,9 +14,23 @@ export default function BookingSection() {
         date: "",
         message: ""
     })
+    const [status, setStatus] = useState("");
+    const [error, setError] = useState("");
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+
+    // submit function and error handling
     async function submit(e: React.FormEvent) {
         e.preventDefault();
+
+        setStatus("");
+        setError("");
+
+
+        if (!emailRegex.test(form.email)) {
+            setError("Please enter a valid email address.");
+            return;
+        }
 
         try {
             const res = await fetch("/api/contact", {
@@ -27,13 +41,16 @@ export default function BookingSection() {
                 body: JSON.stringify(form)
             });
 
+            const data = await res.json();
+
             if (!res.ok) {
-                throw new Error("Failed");
+                throw new Error(data.error?.message || "Something went wrong.");
             }
 
-            window.alert("booking request sent")
+            setStatus("Booking request sent! We'll get back to you shortly.")
         } catch (error) {
-            window.alert("Something went wrong")
+            if (error instanceof Error) { setError(error.message) }
+            else { setError("Something went wrong... Please try again later ") }
         }
     }
 
@@ -44,7 +61,7 @@ export default function BookingSection() {
 
             {/* Booking form */}
 
-            <div className="font-poppins relative w-full flex flex-col bg-black/80 p-10 md:p-20">
+            <div className="font-poppins relative w-full flex flex-col bg-black/80 p-5 md:p-20">
 
                 {/* Backdrop */}
                 <div className="absolute inset-0 -z-10">
@@ -63,9 +80,9 @@ export default function BookingSection() {
 
 
 
-                <form onSubmit={submit} className="mx-auto w-full max-w-5xl bg-[#191919] p-8 rounded-xl border border-gray-600 shadow-xl">
+                <form onSubmit={submit} className="mx-auto w-full max-w-5xl bg-[#191919] p-5 md:p-8 rounded-xl border border-gray-600 shadow-xl">
 
-                    <div className="grid md:grid-cols-2 gap-6 max-w-full overflow-x-clip">
+                    <div className="grid md:grid-cols-2 gap-6 min-w-0">
 
                         {/* Name */}
                         <div className="flex flex-col">
@@ -79,7 +96,7 @@ export default function BookingSection() {
                                 placeholder="e.g John Smith..."
                                 onChange={(e) => setForm({ ...form, name: e.target.value })}
                                 value={form.name}
-                                className="rounded-lg bg-[#2a2a2a] border border-gray-600 p-3 text-white outline-none focus:border-[#b79c5a]"
+                                className="w-full min-w-0 rounded-lg bg-[#2a2a2a] border border-gray-600 p-3 text-white outline-none focus:border-[#b79c5a]"
                             />
                         </div>
 
@@ -88,13 +105,13 @@ export default function BookingSection() {
                         <div className="flex flex-col">
                             <label htmlFor="phone number" className="text-white mb-2">Phone Number</label>
                             <input
-                                id="phone number"
+                                id="phone"
                                 autoComplete="on"
                                 type="tel"
                                 placeholder="07..."
                                 onChange={(e) => setForm({ ...form, phone: e.target.value })}
                                 value={form.phone}
-                                className="rounded-lg bg-[#2a2a2a] border border-gray-600 p-3 text-white outline-none focus:border-[#b79c5a]"
+                                className="w-full min-w-0 rounded-lg bg-[#2a2a2a] border border-gray-600 p-3 text-white outline-none focus:border-[#b79c5a]"
                             />
                         </div>
 
@@ -110,7 +127,7 @@ export default function BookingSection() {
                                 placeholder="example@email.com"
                                 onChange={(e) => setForm({ ...form, email: e.target.value })}
                                 value={form.email}
-                                className="rounded-lg bg-[#2a2a2a] border border-gray-600 p-3 text-white outline-none focus:border-[#b79c5a]"
+                                className="w-full min-w-0 rounded-lg bg-[#2a2a2a] border border-gray-600 p-3 text-white outline-none focus:border-[#b79c5a]"
                             />
                         </div>
 
@@ -125,7 +142,7 @@ export default function BookingSection() {
                                 placeholder="e.g. BMW 3 Series 2014"
                                 onChange={(e) => setForm({ ...form, vehicle: e.target.value })}
                                 value={form.vehicle}
-                                className="rounded-lg bg-[#2a2a2a] border border-gray-600 p-3 text-white outline-none focus:border-[#b79c5a]"
+                                className="w-full min-w-0 rounded-lg bg-[#2a2a2a] border border-gray-600 p-3 text-white outline-none focus:border-[#b79c5a]"
                             />
                         </div>
 
@@ -134,7 +151,7 @@ export default function BookingSection() {
                         <div className="flex flex-col">
                             <label htmlFor="service" className="text-white mb-2">Service Required*</label>
 
-                            <select className="rounded-lg bg-[#2a2a2a] border border-gray-600 p-3 text-white outline-none focus:border-[#b79c5a]"
+                            <select className="w-full min-w-0 rounded-lg bg-[#2a2a2a] border border-gray-600 p-3 text-white outline-none focus:border-[#b79c5a]"
                                 id="service"
                                 value={form.service}
                                 onChange={(e) => setForm({ ...form, service: e.target.value })}
@@ -195,6 +212,18 @@ export default function BookingSection() {
                             <p>*We'd love to hear from you, feel free to contact us for a quote!</p>
                         </div>
                     </div>
+
+                    {status && (
+                        <div className="mt-5 rounded-lg bg-green-600/20 border border-green-500 p-4 text-green-300">
+                            {status}
+                        </div>
+                    )}
+
+                    {error && (
+                        <div className="mt-5 rounded-lg bg-red-600/20 border border-red-500 p-4 text-red-300">
+                            {error}
+                        </div>
+                    )}
 
                 </form>
 
