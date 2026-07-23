@@ -20,6 +20,7 @@ export default function ProductCard({name, price, image}: ProductCardProps) {
                             <Image className="aspect-2/3 object-cover"
                                 src={image}
                                 alt={name}
+                                placeholder="blur"
                                 sizes="(max-width: 768px) 100vw, 50vw"
                                 fill
                                 
@@ -28,6 +29,7 @@ export default function ProductCard({name, price, image}: ProductCardProps) {
                             <Image className="aspect-2/3 object-cover"
                                 src={image404}
                                 alt={name}
+                                placeholder="blur"
                                 sizes="(max-width: 768px) 100vw, 50vw"
                                 fill
                             />

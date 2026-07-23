@@ -19,12 +19,15 @@ export default function Home() {
 
       {/* 
 
-      TODO: About Page - pretty quick
+      TODO: Fade in to loading backgrounds, animate text.
       TODO: second email to customer confirming booking?
-      TODO: services page - add the booking section? lead to a form that goes to email
-      TODO: Products Page - 
+      TODO: services page - add the booking section?
+      TODO: Products Page
       TODO: Testimonials/customers page
       TODO: CONTACT / SOCIALS
+      TODO: payment section?
+      TODO: BACKEND DB for products
+      TODO: login for admin, see who requested a booking etc.
 
        */}
 

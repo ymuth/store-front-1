@@ -19,6 +19,7 @@ export default function AboutSection() {
                             src={aboutimg}
                             alt="interior detailing"
                             fill
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw"
                             priority
                             placeholder="blur"
                             className="object-right  object-cover"

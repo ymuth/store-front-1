@@ -32,6 +32,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      data-scroll-behaviour="smooth"
       className={` ${poppins.variable} ${geistSans.variable} ${geistMono.variable} h-full antialiased scrollbar-thin scroll-smooth`}
     >
       <body className="min-h-full flex flex-col">

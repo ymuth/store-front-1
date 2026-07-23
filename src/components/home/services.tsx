@@ -41,6 +41,7 @@ export default function ServicesSection() {
                                     src={bodyPolish}
                                     alt="Body Polishing"
                                     fill
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw"
                                     priority
                                     placeholder="blur"
                                     className=" object-cover object-left"
@@ -61,6 +62,7 @@ export default function ServicesSection() {
                                 <Image
                                     src={interiorCleaning}
                                     alt="interior detailing w-full"
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw"
                                     fill
                                     priority
                                     placeholder="blur"
@@ -82,6 +84,7 @@ export default function ServicesSection() {
                                 <Image
                                     src={ceramicCoating}
                                     alt="Ceramic Coating"
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw"
                                     fill
                                     priority
                                     placeholder="blur"
