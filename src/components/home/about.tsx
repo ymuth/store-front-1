@@ -39,7 +39,7 @@ export default function AboutSection() {
                     <div className="row-span-2 md:col-[4/-1] md:row-[2/-1]">
 
                         <FadeIn x={80} y={0}>
-                            <div className=" relative z-10 shadow-[-20px_10px_40px_rgba(0,0,0,0.45)]    md:text-left text-center text-white justify-center flex flex-col bg-[#5b5a5a] overflow-hidden px-5 py-10 md:p-15  ">
+                            <div className=" relative z-10 md:shadow-[-20px_10px_40px_rgba(0,0,0,0.45)] md:text-left text-center text-white justify-center flex flex-col bg-[#5b5a5a] overflow-hidden px-5 py-10 md:p-15  ">
 
                                 <h3 className="md:text-4xl text-3xl font-semibold border-b-2 pb-3">What we do</h3>
                                 <p className="py-10 md:text-xl text-lg text-gray-300">We offer precise, high-quality car cleaning services, including interior and exterior cleaning, seat and carpet shampooing, headlight restoration, and body polishing. Entrust your vehicle to us for sparkling results.</p>
