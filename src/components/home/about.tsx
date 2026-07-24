@@ -36,7 +36,7 @@ export default function AboutSection() {
 
                     </div>
 
-                    <div className="row-span-2 md:col-[4/-1] md:row-[2/-1]">
+                    <div className="row-span-2 md:col-[4/-1] md:row-[2/-1] overflow-x-clip">
 
                         <FadeIn x={80} y={0}>
                             <div className=" relative z-10 md:shadow-[-20px_10px_40px_rgba(0,0,0,0.45)] md:text-left text-center text-white justify-center flex flex-col bg-[#5b5a5a] overflow-hidden px-5 py-10 md:p-15  ">

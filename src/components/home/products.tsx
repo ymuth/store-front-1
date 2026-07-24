@@ -16,7 +16,7 @@ export default function ProductsSection() {
                 <h1 className="text-5xl border-b-3 border-white text-white mx-auto text-center font-bold font-sans w-fit pb-3 mb-5 md:mb-0">Products</h1>
 
 
-                <div className="my-auto pt-5 md:justify-center-safe flex flex-row gap-4 overflow-x-auto pb-3 scrollbar-thumb-black scrollbar-track-gray-500/50">
+                <div className="my-auto pt-5 md:justify-center-safe flex overflow-y-clip flex-row gap-4 overflow-x-auto pb-3 scrollbar-thumb-black scrollbar-track-gray-500/50">
 
 
                     {products.slice(0, 4).map((product, index) => (
