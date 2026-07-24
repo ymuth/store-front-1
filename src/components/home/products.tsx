@@ -1,6 +1,7 @@
 import Link from "next/link";
 import ProductCard from "@/components/productsCard";
 import { products } from "@/data/products";
+import FadeIn from "../ui/fadeIn";
 
 export default function ProductsSection() {
 
@@ -18,13 +19,19 @@ export default function ProductsSection() {
                 <div className="my-auto pt-5 md:justify-center-safe flex flex-row gap-4 overflow-x-auto pb-3 scrollbar-thumb-black scrollbar-track-gray-500/50">
 
 
-                    {products.slice(0, 4).map((product) => (
-                        <ProductCard
+                    {products.slice(0, 4).map((product, index) => (
+                        <FadeIn
                             key={product.id}
-                            name={product.name}
-                            price={product.price}
-                            image={product.image}
-                        />
+                            delay={index * 0.1}
+                        >
+
+                            <ProductCard
+                                key={product.id}
+                                name={product.name}
+                                price={product.price}
+                                image={product.image}
+                            />
+                        </FadeIn>
                     ))}
 
 
