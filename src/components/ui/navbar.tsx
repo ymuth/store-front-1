@@ -1,9 +1,10 @@
 "use client"
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function NavBar() {
     const [open, setOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false)
 
     const NAV_LINKS = [
         { label: "Services", href: "/services" },
@@ -12,13 +13,29 @@ export default function NavBar() {
         { label: "Contact Us", href: "/contact" },
     ]
 
+    useEffect(() => {
+        function handleScroll() {
+            setScrolled(window.scrollY > 80);
+        }
+
+        window.addEventListener("scroll", handleScroll)
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll)
+        }
+
+    }, []);
+
+
+
+
     return (
-        <nav className="relative z-20 text-black">
+        <nav className="relative z-20 text-black md:mb-15 mb-15">
 
             {/* Desktop */}
-            <div className="flex w-full relative z-20 items-center py-2 px-4 pr-6 border-b-2 bg-white  border-b-black ">
+            <div className={`flex w-full fixed z-20 items-center  transition-all ${scrolled ? "py-2" : "py-6"}  px-4 border-b-2 bg-white  border-b-black `}>
 
-                <div className="font-extrabold text-xl">
+                <div className={`font-extrabold transition-all ${scrolled ? "text-xl" : "text-2xl"}`}>
                     <Link className="uppercase" href={"/"} onClick={() => setOpen(false)}>Detailing Corp</Link>
                 </div>
 
@@ -49,7 +66,7 @@ export default function NavBar() {
 
                 {open && (
 
-                    <div className="w-full bg-white  border-t transition-all">
+                    <div className={`w-full fixed bg-white border-t transition-all ${scrolled ? "top-15" : "top-22"}`}>
                         <div className="flex flex-col p-4 gap-4 mr-auto">
 
                             {NAV_LINKS.map((link) => (
