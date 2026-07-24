@@ -32,7 +32,7 @@ export default function FadeIn({
         delay,
       }}
       viewport={{
-        once: false,
+        once: true,
         amount: 0.2,
       }}
     >
