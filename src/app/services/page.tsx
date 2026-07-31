@@ -1,13 +1,18 @@
+import { prisma } from '@prisma-db'
 import Image from "next/image"
 import BD2 from "@/../public/home/merc.jpg"
 import FadeIn from "@/components/ui/fadeIn"
 import Image404 from "@/../public/Image404.png"
-import { services } from "@/data/services"
-import ServicesSection from "@/components/home/services"
+// import { services } from "@/data/services"
 import BookingSection from "@/components/home/booking"
+import { StaticImport } from 'next/dist/shared/lib/get-img-props'
 
 
-export default function ServicesPage() {
+export default async function ServicesPage() {
+    const services = await prisma.services.findMany({
+        orderBy: { id: 'asc' },
+    })
+
 
     return (
 
@@ -39,13 +44,12 @@ export default function ServicesPage() {
 
                                 <div className={`overflow-hidden relative col-span-1 aspect-square ${index % 2 != 0 && "md:order-last"}`}>
                                     <Image
-                                        src={service.image}
+                                        src={service.image ?? Image404}
                                         alt={service.name}
                                         fill
                                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw"
                                         priority
-                                        placeholder="blur"
-                                        className={` ${service.image == Image404 ? "object-fit" : "object-cover"} object-left `}
+                                        className={` ${!service.image ? "object-fit" : "object-cover"} object-left `}
                                     />
                                 </div>
 

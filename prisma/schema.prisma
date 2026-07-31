@@ -19,6 +19,7 @@ model Products {
   price       Decimal  @db.Decimal(10, 2)
   image       String?
   inStock     Boolean  @default(true)
+  category    String?
   createdAt   DateTime @default(now())
 }
 
@@ -29,6 +30,7 @@ model Services {
   process     String
   price       Decimal?
   image       String?
+  category    String?
   createdAt   DateTime @default(now())
 }
 
