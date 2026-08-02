@@ -3,9 +3,8 @@ import Image from "next/image"
 import BD2 from "@/../public/home/merc.jpg"
 import FadeIn from "@/components/ui/fadeIn"
 import Image404 from "@/../public/Image404.png"
-// import { services } from "@/data/services"
 import BookingSection from "@/components/home/booking"
-import { StaticImport } from 'next/dist/shared/lib/get-img-props'
+import ServiceImage from '@/components/ui/servicesImage'
 
 
 export default async function ServicesPage() {
@@ -42,19 +41,16 @@ export default async function ServicesPage() {
 
                             <div key={service.id} className="grid md:grid-cols-4 grid-cols-1">
 
-                                <div className={`overflow-hidden relative col-span-1 aspect-square ${index % 2 != 0 && "md:order-last"}`}>
-                                    <Image
-                                        src={service.image ?? Image404}
+                                <div className={`overflow-hidden relative col-span-1 min-h-75 ${index % 2 != 0 && "md:order-last"}`}>
+                                    <ServiceImage
+                                        src={service.image}
                                         alt={service.name}
-                                        fill
-                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw"
-                                        priority
-                                        className={` ${!service.image ? "object-fit" : "object-cover"} object-left `}
+                                        fallback={Image404}
                                     />
                                 </div>
 
-                                <div className="bg-[#5b5a5a] text-left col-span-3 min-w-full md:p-10 p-3  max-w-[50%] flex flex-col justify-center-safe  overflow-y-scroll scrollbar-none scrollbar-thumb-black scrollbar-track-gray-500/50">
-                                    <h3 className="text-2xl font-bold italic text-shadow-lg text-right mb-auto">{service.name}</h3>
+                                <div className="bg-[#5b5a5a] md:text-left text-center col-span-3 min-w-full md:p-10 p-5  max-w-[50%] flex flex-col justify-center-safe  overflow-y-scroll scrollbar-none scrollbar-thumb-black scrollbar-track-gray-500/50">
+                                    <h3 className="text-2xl font-bold italic text-shadow-lg md:text-right md:mb-auto mb-5">{service.name}</h3>
                                     <p className="pb-2">{service.description}</p>
                                     <p className="text-gray-300 mb-auto">{service.process}</p>
                                 </div>

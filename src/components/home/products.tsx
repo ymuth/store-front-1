@@ -1,5 +1,5 @@
 import Link from "next/link";
-import ProductCard from "@/components/productsCard";
+import ProductCard from "@/components/ui/productsCard";
 import { products } from "@/data/products";
 import FadeIn from "@/components/ui/fadeIn";
 
@@ -51,7 +51,7 @@ export default function ProductsSection() {
                     </div>
                 </FadeIn>
 
-                <Link href="/services" className="mt-10 mx-auto p-5 text-white font-semibold bg-linear-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-linear-to-br rounded-3xl hover:opacity-90 transition-opacity">View All Products</Link>
+                <Link href="/" className="mt-10 mx-auto p-5 text-white font-semibold bg-linear-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-linear-to-br rounded-3xl hover:opacity-90 transition-opacity">View All Products</Link>
 
 
 

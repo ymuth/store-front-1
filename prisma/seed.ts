@@ -89,7 +89,7 @@ async function main() {
         description: "Our full vehicle detail combines a complete exterior and interior clean to restore your vehicle inside and out, leaving it looking refreshed and professionally maintained.",
         process: "Our process includes a deep exterior wash, wheel and tyre cleaning, paint decontamination, interior vacuuming, upholstery cleaning, and detailed finishing touches throughout the vehicle. Perfect for bringing neglected vehicles back to a high standard.",
         price: null,
-        image: null,
+        image: "/home/clean-car.jpg",
         category: "Exterior",
       },
       {
@@ -97,7 +97,7 @@ async function main() {
         description: "Our paint correction service restores the appearance of your vehicle's paintwork by reducing swirl marks, light scratches, and surface imperfections to achieve a smoother, deeper gloss finish.",
         process: "Using a careful machine polishing process, we refine the clear coat in multiple stages depending on the condition of the paint. The result is improved clarity, enhanced reflections, and a finish prepared for long-term protection.",
         price: null,
-        image: null,
+        image: "/home/new-paint.jpg",
         category: "Exterior",
       },
       {
@@ -105,7 +105,7 @@ async function main() {
         description: "Cloudy and faded headlights can reduce visibility and make your vehicle look older. Our headlight restoration service restores clarity and improves the appearance of your headlights.",
         process: "The process removes oxidation, yellowing, and surface imperfections before polishing and applying protection to help maintain a clearer finish and improve nighttime visibility.",
         price: null,
-        image: null,
+        image: "/home/headlight.jpg",
         category: "Exterior",
       },
       {
@@ -113,7 +113,7 @@ async function main() {
         description: "Designed for vehicles that already receive regular care, our maintenance detail keeps your vehicle looking its best without the need for a full restoration.",
         process: "This service includes a thorough safe wash, wheel cleaning, interior refresh, and finishing touches to maintain your vehicle's appearance and protection between larger detailing services.",
         price: null,
-        image: null,
+        image: "/home/car-washed-BMWX6.jpg",
         category: "Exterior",
       },
 
