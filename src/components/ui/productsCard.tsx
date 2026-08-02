@@ -1,5 +1,5 @@
 import Image, { StaticImageData } from "next/image";
-import image404 from "@/../public/Image404.png"
+import image404 from "@public/Image404.png"
 
 type ProductCardProps = {
   name: string;

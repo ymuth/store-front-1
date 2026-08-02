@@ -1,10 +1,12 @@
 import { prisma } from '@prisma-db'
 import Image from "next/image"
-import BD2 from "@/../public/home/merc.jpg"
+import BD2 from "@public/home/merc.jpg"
 import FadeIn from "@/components/ui/fadeIn"
-import Image404 from "@/../public/Image404.png"
+import Image404 from "@public/Image404.png"
 import BookingSection from "@/components/home/booking"
 import ServiceImage from '@/components/ui/servicesImage'
+import hero from '@public/home/twin-white.jpg'
+import Link from 'next/link'
 
 
 export default async function ServicesPage() {
@@ -16,8 +18,39 @@ export default async function ServicesPage() {
     return (
 
         <div>
+
+            < div className="min-h-dvh flex flex-col" >
+
+                {/* Background + fade */}
+                < div className="fixed inset-0 -z-10" >
+                    <Image
+                        src={hero}
+                        alt="background"
+                        fill
+                        priority
+                        placeholder="blur"
+                        className="object-cover "
+                    />
+                </div >
+                <div className="-z-10 fixed inset-0 bg-linear-to-b md:bg-linear-to-t from-black to-transparent" />
+
+
+                {/* Slogan + services link */}
+                <div className="md:m-10 md:p-10  flex flex-col text-white p-5 m-3">
+
+                    <h1 className="md:text-5xl  text-2xl text-center font-bold border-b-3 p-5 pb-8">Ensuring Excellence in Every Detail</h1>
+                    <p className=" text-xl p-5 text-center">View all our Services below, or skip straight to the booking page!</p>
+                    <div className=" mx-auto font-semibold flex gap-4 text-center">
+                        <Link href="#services" className="mt-10 mx-auto p-5 text-white font-semibold bg-linear-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-linear-to-br rounded-3xl hover:opacity-90 transition-opacity">View Services</Link>
+                        <Link href="#booking" className="mt-10 mx-auto p-5 text-white font-semibold bg-linear-to-r from-amber-400 via-amber-500 to-amber-600 hover:bg-linear-to-br rounded-3xl hover:opacity-90 transition-opacity">Book services</Link>
+                    </div>
+
+                </div>
+            </div>
+
+
             {/* Services section */}
-            <div className="font-poppins relative w-full max-w-screen  flex flex-col p-10 md:p-20 bg-black/50 text-white">
+            <div id="services" className="font-poppins relative w-full max-w-screen  flex flex-col p-10 md:p-20 bg-black/50 text-white">
 
                 {/* Backdrop */}
                 <div className="absolute inset-0 -z-10">

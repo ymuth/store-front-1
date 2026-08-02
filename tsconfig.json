@@ -20,7 +20,8 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
-      "@prisma-db": ["./prisma/db"]
+      "@prisma-db": ["./prisma/db"],
+      "@public/*": ["./public/*"],
     }
   },
   "include": [

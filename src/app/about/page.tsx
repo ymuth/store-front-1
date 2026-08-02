@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import r8_tail from "@/../public/home/R8-tail.jpg"
+import r8_tail from "@public/home/R8-tail.jpg"
 
 export default function AboutPage() {
     return (

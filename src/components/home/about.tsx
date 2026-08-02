@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import aboutimg from "@/../public/home/mercedes-sw.jpg"
+import aboutimg from "@public/home/mercedes-sw.jpg"
 import FadeIn from "../ui/fadeIn"
 
 export default function AboutSection() {

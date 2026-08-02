@@ -10,7 +10,7 @@ type Props = {
     className?: string
 }
 
-export default function ServiceImage({ src, alt, fallback }: Props) {
+export default function ServiceColumn({ src, alt, fallback, className }: Props) {
     const [failed, setFailed] = useState(false)
     const showFallback = !src || failed
 

@@ -1,10 +1,10 @@
 // data/products.ts
 
-import cockpitShine from "@/../public/products/cockpit-shine.jpg";
-import glassCleaner from "@/../public/products/glass-cleaner.jpg";
-import tyreShine from "@/../public/products/tyre-shine.jpg";
-import washWax from "@/../public/products/wash-n-wax.jpg"
-import wheelCleaner from "@/../public/products/wheel-cleaner.jpg"
+import cockpitShine from "@public/products/cockpit-shine.jpg";
+import glassCleaner from "@public/products/glass-cleaner.jpg";
+import tyreShine from "@public/products/tyre-shine.jpg";
+import washWax from "@public/products/wash-n-wax.jpg"
+import wheelCleaner from "@public/products/wheel-cleaner.jpg"
 
 export const products = [
   {

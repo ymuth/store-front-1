@@ -2,11 +2,11 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import bodyPolish from "@/../public/home/body-polish.jpg"
-import ceramicCoating from "@/../public/home/ceramic-coating.jpeg"
-import interiorCleaning from "@/../public/home/interior-cleaning.jpeg"
-import Image404 from "@/../public/Image404.png"
-import BD2 from "@/../public/home/merc.jpg"
+import bodyPolish from "@public/home/body-polish.jpg"
+import ceramicCoating from "@public/home/ceramic-coating.jpeg"
+import interiorCleaning from "@public/home/interior-cleaning.jpeg"
+import Image404 from "@public/Image404.png"
+import BD2 from "@public/home/merc.jpg"
 
 
 export const services = [

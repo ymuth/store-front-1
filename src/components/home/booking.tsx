@@ -1,6 +1,6 @@
 "use client"
 import Image from "next/image";
-import bookingBD from "@/../public/home/twin-white.jpg"
+import bookingBD from "@public/home/twin-white.jpg"
 import { useState } from "react";
 import FadeIn from "../ui/fadeIn";
 

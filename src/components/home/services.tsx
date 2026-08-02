@@ -1,14 +1,21 @@
+import { prisma } from "@prisma-db"
 import Image from "next/image"
 import Link from "next/link"
-import bodyPolish from "@/../public/home/body-polish.jpg"
-import ceramicCoating from "@/../public/home/ceramic-coating.jpeg"
-import interiorCleaning from "@/../public/home/interior-cleaning.jpeg"
-import BD2 from "@/../public/home/merc.jpg"
+import bodyPolish from "@public/home/body-polish.jpg"
+import ceramicCoating from "@public/home/ceramic-coating.jpeg"
+import interiorCleaning from "@public/home/interior-cleaning.jpeg"
+import BD2 from "@public/home/merc.jpg"
 import FadeIn from "../ui/fadeIn"
+import ServiceImage from "../ui/servicesImage"
+import image404 from "@public/Image404.png"
 
 
 
-export default function ServicesSection() {
+export default async function ServicesSection() {
+    const services = await prisma.services.findMany({
+        orderBy: { id: 'asc' },
+        take: 3,
+    })
 
     return (
 
@@ -35,75 +42,29 @@ export default function ServicesSection() {
                     <div className="grid flex-1 md:grid-cols-3 gap-10 w-full items-center text-center">
 
                         {/* Body Polishing */}
-                        <div>
-                            <FadeIn>
+                        {services.map((service, index) => (
+                            <div key={service.id}>
 
-                                <div className="overflow-hidden relative aspect-square ">
-                                    <Image
-                                        src={bodyPolish}
-                                        alt="Body Polishing"
-                                        fill
-                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw"
-                                        priority
-                                        placeholder="blur"
-                                        className=" object-cover object-left"
-                                    />
-                                </div>
-                                <div className="bg-[#5b5a5a] size-full p-3 text-center flex flex-col justify-center-safe aspect-square overflow-y-scroll scrollbar-none scrollbar-thumb-black scrollbar-track-gray-500/50">
-                                    <h3 className="text-xl font-bold p-3">Body Polishing</h3>
-                                    <p className="text-lg">Car body polishing restores the shine and luster of your car, making it look like new.</p>
-                                </div>
+                                <FadeIn delay={index * 0.2}>
+                                    <div className={index % 2 != 0 ? "flex flex-col md:flex-col-reverse" : ""}>
 
-                            </FadeIn>
-                        </div>
+                                        <div className="overflow-hidden relative aspect-square">
+                                            <ServiceImage
+                                                src={service.image}
+                                                alt={service.name}
+                                                fallback={image404}
+                                            />
+                                        </div>
+                                        <div className="bg-[#5b5a5a] size-full p-3 text-center flex flex-col justify-center-safe aspect-square overflow-y-scroll scrollbar-none scrollbar-thumb-black scrollbar-track-gray-500/50">
+                                            <h3 className="text-xl font-bold p-3">{service.name}</h3>
+                                            <p className="text-lg">{service.description}</p>
+                                        </div>
 
+                                    </div>
+                                </FadeIn>
+                            </div>
+                        ))}
 
-                        {/* Interior Cleaning */}
-                        <div className="flex flex-col md:flex-col-reverse">
-                            <FadeIn delay={0.2}>
-
-                                <div className="aspect-square relative overflow-hidden">
-                                    <Image
-                                        src={interiorCleaning}
-                                        alt="interior detailing w-full"
-                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw"
-                                        fill
-                                        priority
-                                        placeholder="blur"
-                                        className="object-cover"
-                                    />
-                                </div>
-                                <div className="bg-[#5b5a5a] size-full p-3 text-center flex flex-col justify-center-safe  aspect-square overflow-y-scroll scrollbar-none scrollbar-thumb-black scrollbar-track-gray-500/50">
-                                    <h3 className="text-xl font-bold p-3">Interior Cleaning</h3>
-                                    <p className="text-lg">Our interior cleaning transforms the interior of your vehicle and eliminates dirt and bad odors. Includes Upholstery and carpet shampoo to bring your seats and carpets back to life</p>
-                                </div>
-
-                            </FadeIn>
-                        </div>
-
-
-                        {/* Cermaic Coating */}
-                        <div>
-                            <FadeIn delay={0.4}>
-
-                                <div className="relative aspect-square overflow-hidden">
-                                    <Image
-                                        src={ceramicCoating}
-                                        alt="Ceramic Coating"
-                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw"
-                                        fill
-                                        priority
-                                        placeholder="blur"
-                                        className=" object-cover"
-                                    />
-                                </div>
-                                <div className="bg-[#5b5a5a] size-full p-3 text-center aspect-square flex flex-col justify-center-safe overflow-y-scroll scrollbar-none scrollbar-thumb-black scrollbar-track-gray-500/50 ">
-                                    <h3 className="text-xl font-bold p-3">Ceramic coating</h3>
-                                    <p className="text-lg">Our Ceramic coating protects your orignal paint for 3-5 years</p>
-                                </div>
-
-                            </FadeIn>
-                        </div>
 
 
 
