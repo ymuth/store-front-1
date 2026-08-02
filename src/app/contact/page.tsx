@@ -1,4 +1,8 @@
 import Link from "next/link";
+import { FaFacebookSquare, FaInstagramSquare } from "react-icons/fa";
+import { FaSquareInstagram } from "react-icons/fa6";
+import { MdEmail } from "react-icons/md";
+import { FaPhoneSquareAlt } from "react-icons/fa";
 
 
 
@@ -6,7 +10,7 @@ export default function ContactPage() {
 
 
     return (
-        <div className="md:mt-6 mt-10 flex flex-col md:mx-[10%]">
+        <div className="md:mt-6 mt-10 flex flex-col max-w-7xl md:mx-auto">
             <div className="bg-linear-to-br from-purple-950  to-gray-900 min-h-dvh fixed -z-10 inset-0"></div>
 
             <div className="text-center p-3 flex flex-col">
@@ -15,11 +19,11 @@ export default function ContactPage() {
                 <p className=" italic ">We're happy to help!</p>
             </div>
 
-            <div className="grid my-5 md:grid-cols-2 md:grid-rows-2 auto-cols-auto md:mx-auto md:w-[65%] gap-3 mx-5 p-5 bg-white text-black">
-                <p>Phone: 07xxx xxxxxx</p>
-                <p>Email: email@detailingcorp.com</p>
-                <p>Instagram: @detailingcorp</p>
-                <p>Facebook: @detailingcorp</p>
+            <div className="grid my-5 md:grid-cols-2 md:grid-rows-2 auto-cols-auto text-lg md:mx-auto md:w-[65%] gap-3 mx-5 p-5 bg-white text-black">
+                <a href={'tel: 07xxx xxxxxx'}><p ><FaPhoneSquareAlt className="inline my-auto mr-1" />Phone: 07xxx xxxxxx</p></a>
+                <a href={'mailto: email@detailing.corp'}><p><MdEmail className="inline my-auto mr-1" />Email: email@detailingcorp.com</p></a>
+                <a href="https://instagram.com"><p><FaInstagramSquare className="inline my-auto mr-1" />Instagram: @detailingcorp</p></a>
+                <a href="https://facebook.com"><p><FaFacebookSquare className="inline my-auto mr-1" />Facebook: @detailingcorp</p></a>
             </div>
 
             <div className="mx-auto text-center my-5 flex flex-col">
