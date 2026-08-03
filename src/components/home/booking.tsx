@@ -12,7 +12,7 @@ export default function BookingSection() {
         phone: "",
         vehicle: "",
         service: "Exterior Detail",
-        date: "",
+        date: "No date specified",
         vehicle_notes: ""
     })
     const [status, setStatus] = useState("");
