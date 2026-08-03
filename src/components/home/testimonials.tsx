@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { prisma } from "@prisma-db"
 
+export const dynamic = 'force-dynamic'
 
 export default async function TestimonialsSection() {
     const testimonials = await prisma.testimonials.findMany({

@@ -6,7 +6,7 @@ import FadeIn from "../ui/fadeIn"
 import ServiceImage from "../ui/servicesImage"
 import image404 from "@public/Image404.png"
 
-
+export const dynamic = 'force-dynamic'
 
 export default async function ServicesSection() {
     const services = await prisma.services.findMany({
