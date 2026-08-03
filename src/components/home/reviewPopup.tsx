@@ -3,6 +3,7 @@
 import { useState, } from "react";
 import { submitTestimonial } from "@/app/actions/testimonials"
 import { div } from "motion/react-client";
+import { siteConfig } from "@/lib/siteConfig";
 
 
 export default function ReviewPopup() {
@@ -201,7 +202,7 @@ function ThankYou({ rating, }: { rating: number }) {
                     <p>We're so glad you had a great experience with us.</p>
                     <p>If you have a moment, it'd really help us out if you left a Google review too!</p>
                     <a
-                        href={`${process.env.NEXT_PUBLIC_GOOGLE_REVIEW_LINK}`}
+                        href={`${siteConfig.googleReviewLink}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="mx-auto mt-2 p-4 text-white font-semibold bg-linear-to-r from-amber-400 via-amber-500 to-amber-600 hover:bg-linear-to-br rounded-3xl hover:opacity-90 transition-opacity"

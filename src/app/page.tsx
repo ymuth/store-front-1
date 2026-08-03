@@ -21,6 +21,7 @@ export default function Home() {
 
       {/* 
 
+      TODO: load products from db instead of ts
       TODO: admin dahsboard
       TODO: login for admin, see who requested a booking etc.
       TODO: second email to customer confirming booking?

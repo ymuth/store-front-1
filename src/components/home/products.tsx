@@ -3,8 +3,6 @@ import ProductCard from "@/components/ui/productsCard";
 import { products } from "@/data/products";
 import FadeIn from "@/components/ui/fadeIn";
 
-export const dynamic = 'force-dynamic'
-
 export default function ProductsSection() {
 
     return (

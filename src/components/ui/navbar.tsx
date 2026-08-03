@@ -1,6 +1,7 @@
 "use client"
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { siteConfig } from "@/lib/siteConfig";
 
 export default function NavBar() {
     const [open, setOpen] = useState(false);
@@ -36,7 +37,7 @@ export default function NavBar() {
             <div className={`flex w-full fixed z-20 items-center  transition-all ${scrolled ? "py-2" : "py-6"}  px-4 border-b-2 bg-white  border-b-black `}>
 
                 <div className={`font-extrabold transition-all ${scrolled ? "text-xl" : "text-2xl"}`}>
-                    <Link className="uppercase" href={"/"} onClick={() => setOpen(false)}>Detailing Corp</Link>
+                    <Link className="uppercase" href={"/"} onClick={() => setOpen(false)}>{siteConfig.businessName}</Link>
                 </div>
 
 

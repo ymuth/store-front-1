@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { FaFacebookSquare, FaInstagramSquare, FaPhoneSquareAlt } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
+import { siteConfig } from "@/lib/siteConfig";
 
 
 
@@ -18,10 +19,10 @@ export default function ContactPage() {
             </div>
 
             <div className="grid my-5 md:grid-cols-2 md:grid-rows-2 auto-cols-auto text-lg md:mx-auto md:w-[65%] gap-3 mx-5 p-5 bg-white text-black">
-                <a href={'tel: 07xxx xxxxxx'}><p ><FaPhoneSquareAlt className="inline my-auto mr-1" />Phone: 07xxx xxxxxx</p></a>
-                <a href={`mailto:${process.env.BUSINESS_EMAIL}`}><p><MdEmail className="inline my-auto mr-1" />Email: email@detailingcorp.com</p></a>
-                <a href="https://instagram.com"><p><FaInstagramSquare className="inline my-auto mr-1" />Instagram: @detailingcorp</p></a>
-                <a href="https://facebook.com"><p><FaFacebookSquare className="inline my-auto mr-1" />Facebook: @detailingcorp</p></a>
+                <a href={`tel: ${siteConfig.businessPhone}`}><p ><FaPhoneSquareAlt className="inline my-auto mr-1" />Phone: {siteConfig.businessPhone}</p></a>
+                <a href={`mailto:${siteConfig.businessEmail}`}><p><MdEmail className="inline my-auto mr-1" />Email: {siteConfig.businessEmail}</p></a>
+                <a href={`${siteConfig.socials.instagram}`}><p><FaInstagramSquare className="inline my-auto mr-1" />Instagram: {siteConfig.socials.instagram_at}</p></a>
+                <a href={`${siteConfig.socials.facebook}`}><p><FaFacebookSquare className="inline my-auto mr-1" />Facebook: {siteConfig.socials.facebook_at}</p></a>
             </div>
 
             <div className="mx-auto text-center my-5 flex flex-col">

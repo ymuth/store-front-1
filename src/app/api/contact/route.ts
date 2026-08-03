@@ -1,7 +1,8 @@
 import { Resend } from "resend";
+import { siteConfig } from "@/lib/siteConfig";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-const recipient = process.env.BUSINESS_EMAIL;
+const recipient = siteConfig.businessEmail;
 
 
 export async function POST(req: Request) {

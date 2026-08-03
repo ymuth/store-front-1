@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { FaFacebookSquare, FaInstagramSquare } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
+import { siteConfig } from "@/lib/siteConfig";
 
 export default function Footer() {
 
@@ -29,9 +30,9 @@ export default function Footer() {
                 </div>
 
                 <div className="flex flex-col justify-between gap-3 text-center text-3xl">
-                    <a href="https://facebooks.com"><FaFacebookSquare /></a>
-                    <a href="https://instagram.com"><FaInstagramSquare /></a>
-                    <a href={`mailto:${process.env.BUSINESS_EMAIL}`}><MdEmail /></a>
+                    <a href={siteConfig.socials.facebook}><FaFacebookSquare /></a>
+                    <a href={siteConfig.socials.instagram}><FaInstagramSquare /></a>
+                    <a href={`mailto:${siteConfig.businessEmail}`}><MdEmail /></a>
 
                 </div>
             </div>
