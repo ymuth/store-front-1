@@ -5,6 +5,8 @@ import ProductsSection from "@/components/home/products";
 import BookingSection from "@/components/home/booking";
 import TestimonialsSection from "@/components/home/testimonials";
 
+export const dynamic = 'force-dynamic'
+
 export default function Home() {
   return (
     <div className="">
