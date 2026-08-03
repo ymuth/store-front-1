@@ -126,28 +126,38 @@ async function main() {
     data: [
       {
         name: "James R.",
+        email: "James.R@fakeemail.com",
         review: "Absolutely blown away with the results. My BMW hadn't looked this clean since I bought it. The paint had an incredible shine and the interior looked factory fresh. Highly recommend.",
         rating: 5,
+        featured: true,
       },
       {
         name: "Oliver R.",
+        email: "Oliver.R@fakeemail.com",
         review: "Professional from start to finish. They arrived on time, explained everything they were doing, and my car came back looking immaculate. I'll definitely be booking regular maintenance details.",
         rating: 5,
+        featured: true,
       },
       {
         name: "Joseph M.",
+        email: "Joseph.M@fakeemail.com",
         review: "I honestly didn't think the seats could be saved after years of family use, but they managed to remove stains I thought were permanent. Great attention to detail and fantastic customer service.",
         rating: 5,
+        featured: true,
       },
       {
         name: "Ahmed A.",
+        email: "Ahmed.A@fakeemail.com",
         review: "Had my headlights restored and a full exterior polish. The difference is incredible—not only does the car look newer, but visibility at night has improved massively. Worth every penny.",
         rating: 5,
+        featured: true,
       },
       {
         name: "Thomas K.",
+        email: "Thomas.K@fakeemail.com",
         review: "Excellent value for money. Every corner of the car was spotless, from the wheels to the dashboard vents. It's clear they genuinely care about the quality of their work.",
         rating: 5,
+        featured: true,
       },
       
     ]

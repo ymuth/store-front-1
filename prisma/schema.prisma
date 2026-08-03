@@ -37,8 +37,10 @@ model Services {
 model Testimonials {
   id          Int      @id @default(autoincrement())
   name        String
+  email       String
   review      String
   rating      Int      
+  featured    Boolean  @default(false)
   createdAt   DateTime @default(now())
 }
 

@@ -23,6 +23,7 @@ export default function Home() {
       TODO: admin dahsboard
       TODO: login for admin, see who requested a booking etc.
       TODO: second email to customer confirming booking?
+      TODO: remove clear tables and seed from build script
 
        */}
 
