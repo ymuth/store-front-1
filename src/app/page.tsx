@@ -19,7 +19,6 @@ export default function Home() {
 
       {/* 
 
-      TODO: Testimonials review section
       TODO: admin dahsboard
       TODO: login for admin, see who requested a booking etc.
       TODO: second email to customer confirming booking?
