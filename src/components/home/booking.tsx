@@ -106,7 +106,7 @@ export default function BookingSection() {
 
                             {/* Phone */}
                             <div className="flex flex-col">
-                                <label htmlFor="phone number" className="text-white mb-2">Phone Number</label>
+                                <label htmlFor="phone" className="text-white mb-2">Phone Number</label>
                                 <input
                                     id="phone"
                                     name="phone"
