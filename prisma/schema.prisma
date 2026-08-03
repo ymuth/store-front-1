@@ -28,9 +28,17 @@ model Services {
   name        String
   description String
   process     String
-  price       Decimal?
+  price       Decimal? @db.Decimal(10, 2)
   image       String?
   category    String?
+  createdAt   DateTime @default(now())
+}
+
+model Testimonials {
+  id          Int      @id @default(autoincrement())
+  name        String
+  review      String
+  rating      Int      
   createdAt   DateTime @default(now())
 }
 

@@ -6,6 +6,7 @@ async function main() {
   await prisma.log.deleteMany()
   await prisma.products.deleteMany()
   await prisma.services.deleteMany()
+  await prisma.testimonials.deleteMany()
 
   // #################################################
 
@@ -58,7 +59,7 @@ async function main() {
   // ##################################################
 
   console.log("Seeding Servcies...")
-  const newService = await prisma.services.createMany({
+  await prisma.services.createMany({
     data: [
       {
         name: "Body Polishing",
@@ -118,6 +119,38 @@ async function main() {
       },
 
     ],
+  })
+
+  console.log("Seeding Testimonials...")
+  await prisma.testimonials.createMany({
+    data: [
+      {
+        name: "James R.",
+        review: "Absolutely blown away with the results. My BMW hadn't looked this clean since I bought it. The paint had an incredible shine and the interior looked factory fresh. Highly recommend.",
+        rating: 5,
+      },
+      {
+        name: "Oliver R.",
+        review: "Professional from start to finish. They arrived on time, explained everything they were doing, and my car came back looking immaculate. I'll definitely be booking regular maintenance details.",
+        rating: 5,
+      },
+      {
+        name: "Joseph M.",
+        review: "I honestly didn't think the seats could be saved after years of family use, but they managed to remove stains I thought were permanent. Great attention to detail and fantastic customer service.",
+        rating: 5,
+      },
+      {
+        name: "Ahmed A.",
+        review: "Had my headlights restored and a full exterior polish. The difference is incredible—not only does the car look newer, but visibility at night has improved massively. Worth every penny.",
+        rating: 5,
+      },
+      {
+        name: "Thomas K.",
+        review: "Excellent value for money. Every corner of the car was spotless, from the wheels to the dashboard vents. It's clear they genuinely care about the quality of their work.",
+        rating: 5,
+      },
+      
+    ]
   })
 
 }

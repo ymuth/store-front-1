@@ -19,9 +19,6 @@ export default function Home() {
 
       {/* 
 
-      
-      TODO: CONTACT / SOCIALS
-      TODO: footer
       TODO: Testimonials review section
       TODO: admin dahsboard
       TODO: login for admin, see who requested a booking etc.
