@@ -1,0 +1,221 @@
+"use client"
+
+import { useState, } from "react";
+import { submitTestimonial } from "@/app/actions/testimonials"
+import { div } from "motion/react-client";
+
+
+export default function ReviewPopup() {
+    const [form, setForm] = useState({
+        name: "",
+        email: "",
+        rating: "",
+        review: "",
+    })
+    const [formOpened, setFormOpened] = useState(false);
+    const [rating, setRating] = useState(0);
+    const [hoverRating, setHoverRating] = useState(0);
+    const [submittedRating, setSubmittedRating] = useState(0);
+    const [status, setStatus] = useState<"idle" | "submitting" | "done">("idle")
+    const [error, setError] = useState("");
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+    async function handleSubmit(e: React.FormEvent) {
+        e.preventDefault()
+        setError("")
+
+        if (rating === 0) {
+            setError("Please select a star rating.")
+            return
+        }
+
+        if (!emailRegex.test(form.email)) {
+            setError("Please enter a valid email address.");
+            return;
+        }
+
+        const result = await submitTestimonial({ ...form, rating })
+        if (result.success) {
+            setSubmittedRating(rating)
+            setStatus("done")
+        } else {
+            setError(result.error ?? "Something went wrong.")
+            setStatus("idle")
+        }
+
+
+
+
+    }
+
+    return (
+        <div>
+
+            <button onClick={() => setFormOpened(true)} className="cursor-pointer mx-auto p-5 text-white font-semibold bg-linear-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-linear-to-br rounded-3xl hover:opacity-90 transition-opacity">Leave a Review</button>
+
+            <div className={`${formOpened ? "block" : "hidden"} overflow-scroll fixed md:inset-20 inset-5 p-5 md:px-10  rounded-2xl border border-gray-600 shadow-xl shadow-black bg-linear-to-br from-black via-20% via-gray-950 to-gray-900 z-30`}>
+
+                {status === "done" ?
+                    <div>
+
+                        <button onClick={() => setFormOpened(false)} className="flex size-10 text-black items-center justify-center rounded-full bg-white font-sans text-xl font-bold cursor-pointer fixed md:right-22 md:top-22 top-6 right-6">✕</button>
+                        <ThankYou rating={submittedRating} />
+
+                    </div>
+                    :
+
+                    <div>
+                        <button onClick={() => setFormOpened(false)} className="flex size-10 text-black items-center justify-center rounded-full bg-white font-sans text-xl font-bold cursor-pointer fixed md:right-22 md:top-22 top-6 right-6">✕</button>
+                        <h1 className="text-2xl"> Leave a review! </h1>
+                        <h3 className="text-gray-400"> Thought we were great; or have some room for improvement?</h3>
+                        <h3 className="text-gray-400"> We'd love to hear back from you!</h3>
+
+                        <form onSubmit={handleSubmit}>
+                            {/* <form  className="mx-auto w-full max-w-5xl bg-[#191919]  border border-gray-600 shadow-xl"> */}
+
+                            <div className="grid md:grid-cols-3 gap-6 min-w-0 mt-3">
+
+                                {/* Name */}
+                                <div className="flex flex-col">
+                                    <label htmlFor="name" className="text-white mb-2">Name*</label>
+                                    <input
+                                        id="name"
+                                        name="name"
+                                        autoComplete="name"
+                                        required
+                                        type="text"
+                                        placeholder="e.g John Smith..."
+                                        onChange={(e) => setForm({ ...form, name: e.target.value })}
+                                        value={form.name}
+                                        className="w-full min-w-0 rounded-lg bg-[#2a2a2a] border border-gray-600 p-3 text-white outline-none focus:border-[#b79c5a]"
+                                    />
+                                </div>
+
+                                {/* Email */}
+                                <div className="flex flex-col">
+                                    <label htmlFor="email" className="text-white mb-2">Email*</label>
+                                    <input
+                                        id="email"
+                                        name="email"
+                                        autoComplete="email"
+                                        required
+                                        type="email"
+                                        placeholder="example@email.com"
+                                        onChange={(e) => setForm({ ...form, email: e.target.value })}
+                                        value={form.email}
+                                        className="w-full min-w-0 rounded-lg bg-[#2a2a2a] border border-gray-600 p-3 text-white outline-none focus:border-[#b79c5a]"
+                                    />
+                                </div>
+
+                                {/* Rating */}
+                                <div className="flex flex-col">
+                                    <label htmlFor="rating" className="text-white mb-2">Rating*</label>
+                                    <div className="flex gap-1 text-5xl justify-center w-full">
+                                        {[1, 2, 3, 4, 5].map((star) => (
+                                            <button
+                                                key={star}
+                                                type="button"
+                                                onClick={() => setRating(star)}
+                                                onMouseEnter={() => setHoverRating(star)}
+                                                onMouseLeave={() => setHoverRating(0)}
+                                                className="focus:outline-none cursor-pointer"
+                                            >
+                                                {(hoverRating || rating) >= star ? "★" : "☆"}
+                                            </button>
+                                        ))}
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            {/* Notes */}
+                            <div className="flex flex-col mt-3">
+                                <label htmlFor="notes" className="text-white mb-2">
+                                    Review*
+                                </label>
+
+                                <textarea
+                                    id="notes"
+                                    name="vehicle_notes"
+                                    autoComplete="off"
+                                    rows={6}
+                                    data-bwignore="true"
+                                    placeholder="How'd your experience with us go; what went well or could be improved upon?"
+                                    onChange={(e) => setForm({ ...form, review: e.target.value })}
+                                    value={form.review}
+                                    className="rounded-lg bg-[#2a2a2a] border border-gray-600 p-3 text-white outline-none focus:border-[#b79c5a] resize-none"
+                                />
+                            </div>
+
+
+                            <div className="flex md:flex-row flex-col gap-6 pt-10 justify-between ">
+                                <button
+                                    type="submit"
+                                    disabled={status === "submitting"}
+                                    className=" p-5 text-white cursor-pointer font-semibold bg-linear-to-r from-amber-400 via-amber-500 to-amber-600 hover:bg-linear-to-br rounded-3xl hover:opacity-90 transition-opacity"
+                                >
+                                    {status === "submitting" ? "Submitting..." : "Submit Review"}
+                                </button>
+
+                                <div className=" text-gray-500 my-auto">
+                                    <p>We'd love to hear from you, feel free to leave us a message!</p>
+                                </div>
+                            </div>
+
+                            {/* {status && (
+                        <div className="mt-5 rounded-lg bg-green-600/20 border border-green-500 p-4 text-green-300">
+                            {status}
+                        </div>
+                    )} */}
+
+                            {error && (
+                                <div className="mt-5 rounded-lg bg-red-600/20 border border-red-500 p-4 text-red-300">
+                                    {error}
+                                </div>
+                            )}
+
+                        </form>
+                    </div>
+
+                }
+
+            </div>
+
+
+        </div >
+    )
+}
+
+
+function ThankYou({ rating, }: { rating: number }) {
+    const isPositive = rating >= 4
+
+    return (
+
+        <div className="text-center text-white flex flex-col gap-4 py-6">
+            {isPositive ? (
+                <>
+                    <h2 className="text-2xl font-bold">Thank you! 🎉</h2>
+                    <p>We're so glad you had a great experience with us.</p>
+                    <p>If you have a moment, it'd really help us out if you left a Google review too!</p>
+                    <a
+                        href={`${process.env.NEXT_PUBLIC_GOOGLE_REVIEW_LINK}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mx-auto mt-2 p-4 text-white font-semibold bg-linear-to-r from-amber-400 via-amber-500 to-amber-600 hover:bg-linear-to-br rounded-3xl hover:opacity-90 transition-opacity"
+                    >
+                        Leave a Google Review
+                    </a>
+                </>
+            ) : (
+                <>
+                    <h2 className="text-2xl font-bold">We're sorry to hear that</h2>
+                    <p>Thank you for your honesty — it genuinely helps us improve.</p>
+                    <p>We've noted your feedback and someone from our team will look into it.</p>
+                </>
+            )}
+        </div>
+    )
+}

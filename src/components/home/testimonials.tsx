@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { prisma } from "@prisma-db"
+import ReviewPopup from "./reviewPopup"
 
 export const dynamic = 'force-dynamic'
 
@@ -30,7 +31,7 @@ export default async function TestimonialsSection() {
                     <div className="md:aspect-auto md:order-last order-first aspect-square text-center text-white p-5 bg-[#5b5a5a] flex flex-col gap-2 mx-auto justify-center-safe">
                         <h1 className="  text-lg">Help us improve</h1>
                         <p className="  text-lg">We'd love to know how your experience went!</p>
-                        <Link href="/" className=" mx-auto p-5 text-white font-semibold bg-linear-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-linear-to-br rounded-3xl hover:opacity-90 transition-opacity">Leave a Review</Link>
+                        <ReviewPopup/>
                     </div>
 
                 </div>
