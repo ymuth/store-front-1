@@ -77,9 +77,8 @@ export default async function ServicesPage() {
 
                                 <div className={`overflow-hidden relative col-span-1 min-h-75 ${index % 2 != 0 && "md:order-last"}`}>
                                     <ServiceImage
-                                        src={service.image}
-                                        alt={service.name}
-                                        fallback={Image404}
+                                        image={service.image}
+                                        name={service.name}
                                     />
                                 </div>
 

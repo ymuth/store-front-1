@@ -38,18 +38,18 @@ async function main() {
         category: "Exterior",
       },
       {
-        name: "Wash and Wax",
-        description: "All in one wash and wax; keeping your paint fresh",
-        price: 12.99,
-        image: "/products/wash-n-wax.jpg",
-        inStock: true,
-        category: "Exterior",
-      },
-      {
         name: "Wheel Cleaner",
         description: "Long-lasting wet-look tyre dressing.",
         price: 5.99,
         image: "/products/wheel-cleaner.jpg",
+        inStock: true,
+        category: "Exterior",
+      },
+      {
+        name: "Wash and Wax",
+        description: "All in one wash and wax; keeping your paint fresh",
+        price: 12.99,
+        image: "/products/wash-n-wax.jpg",
         inStock: true,
         category: "Exterior",
       },
@@ -159,7 +159,7 @@ async function main() {
         rating: 5,
         featured: true,
       },
-      
+
     ]
   })
 

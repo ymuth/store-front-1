@@ -1,11 +1,11 @@
 
-export type Product = {
+export type Service = {
   id: number;
   name: string;
   description: string;
-  process: string;
-  price?: number | string;
+  price?: number;
   image?: string | null;
-  category?: string;
+  inStock: boolean;
+  category: string;
   createdAt: string;
 };

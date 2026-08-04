@@ -46,9 +46,8 @@ export default async function ServicesSection() {
 
                                         <div className="overflow-hidden relative aspect-square">
                                             <ServiceImage
-                                                src={service.image}
-                                                alt={service.name}
-                                                fallback={image404}
+                                                image={service.image}
+                                                name={service.name}
                                             />
                                         </div>
                                         <div className="bg-[#5b5a5a] size-full p-3 text-center flex flex-col justify-center-safe aspect-square overflow-y-scroll scrollbar-none scrollbar-thumb-black scrollbar-track-gray-500/50">

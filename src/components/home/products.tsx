@@ -1,9 +1,13 @@
 import Link from "next/link";
 import ProductCard from "@/components/ui/productsCard";
-import { products } from "@/data/products";
 import FadeIn from "@/components/ui/fadeIn";
+import { prisma } from "@prisma-db";
 
-export default function ProductsSection() {
+export default async function ProductsSection() {
+    const products = await prisma.products.findMany({
+        orderBy: {id: 'asc'},
+        take: 5,
+    }) 
 
     return (
 
@@ -16,8 +20,8 @@ export default function ProductsSection() {
                 <h1 className="text-5xl border-b-3 border-white text-white mx-auto text-center font-bold font-sans w-fit pb-3 mb-5 md:mb-0">Products</h1>
 
                 {/* desktop */}
-                <div className="hidden md:flex my-auto pt-5 md:justify-center-safe overflow-y-hidden flex-row gap-4 overflow-x-auto pb-3 scrollbar-thumb-white">
-                    {products.slice(0, 4).map((product, index) => (
+                <div className="hidden md:flex my-auto pt-5 md:justify-center-safe overflow-y-hidden flex-row gap-4 overflow-x-scroll pb-5 scrollbar-thin scrollbar-track-white scrollbar-thumb-black">
+                    {products.map((product, index) => (
                         <FadeIn
                             key={product.id}
                             delay={index * 0.1}
@@ -25,7 +29,7 @@ export default function ProductsSection() {
 
                             <ProductCard
                                 name={product.name}
-                                price={product.price}
+                                price={Number(product.price)}
                                 image={product.image}
                             />
                         </FadeIn>
@@ -36,13 +40,13 @@ export default function ProductsSection() {
                 <FadeIn>
                     <div className="md:hidden flex my-auto pt-5 md:justify-center-safe overflow-y-clip flex-row gap-4 overflow-x-auto pb-3 scrollbar-thumb-white">
 
-                        {products.slice(0, 4).map((product, index) => (
+                        {products.map((product, index) => (
 
 
                             <ProductCard
                                 key={product.id}
                                 name={product.name}
-                                price={product.price}
+                                price={Number(product.price)}
                                 image={product.image}
                             />
                         ))}

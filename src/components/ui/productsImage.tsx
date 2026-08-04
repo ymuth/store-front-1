@@ -2,12 +2,12 @@
 
 import { useState } from "react"
 import Image from "next/image"
-import { Service } from "@/types/services"
+import { Product } from "@/types/products"
 import image404 from "@public/Image404.png"
 
-type ServiceFields = Pick<Service, "image" | "name">
+type ProductFields = Pick<Product, "image" | "name">
 
-export default function ServiceImage({ image, name }: ServiceFields) {
+export default function ProductImage({ image, name }: ProductFields) {
     const [failed, setFailed] = useState(false)
     const showFallback = !image || failed
 
@@ -18,8 +18,9 @@ export default function ServiceImage({ image, name }: ServiceFields) {
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw"
             priority
-            className={`${showFallback ? "object-fit" : "object-cover"} object-left`}
+            className={`${showFallback ? "object-fit" : "object-cover"} aspect-2/3`}
             onError={() => setFailed(true)}
         />
     )
 }
+
