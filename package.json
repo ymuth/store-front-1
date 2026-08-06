@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "tsx prisma/clear-tables.ts && prisma migrate deploy && tsx prisma/seed.ts && next build",
+    "build": "tsx prisma/scripts/clear-tables.ts && prisma migrate deploy && tsx prisma/scripts/seed.ts && next build",
     "postinstall": "prisma generate",
     "start": "next start",
     "lint": "eslint"
