@@ -34,7 +34,7 @@ export default function BookingSection() {
         }
 
         try {
-            const res = await fetch("/api/contact", {
+            const res = await fetch("/api/booking", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

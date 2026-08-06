@@ -12,6 +12,39 @@ datasource db {
   provider = "postgresql"
 }
 
+model User {
+  id                String    @id @default(cuid())
+  email             String    @unique
+  password          String?
+  emailVerified     Boolean   @default(false)
+  verificationToken String?
+  resetToken        String?
+  resetTokenExpiry  DateTime?
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  sessions          Session[]
+  name              String
+  image             String?
+  accounts          Account[]
+
+  @@map("user")
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  token     String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  ipAddress String?
+  userAgent String?
+
+  @@index([userId])
+  @@map("session")
+}
+
 model Products {
   id          Int      @id @default(autoincrement())
   name        String
@@ -35,13 +68,13 @@ model Services {
 }
 
 model Testimonials {
-  id          Int      @id @default(autoincrement())
-  name        String
-  email       String
-  review      String
-  rating      Int      
-  featured    Boolean  @default(false)
-  createdAt   DateTime @default(now())
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String
+  review    String
+  rating    Int
+  featured  Boolean  @default(false)
+  createdAt DateTime @default(now())
 }
 
 model Log {
@@ -50,4 +83,36 @@ model Log {
   operation   String
   description String
   createdAt   DateTime @default(now())
+}
+
+model Account {
+  id                    String    @id
+  accountId             String
+  providerId            String
+  userId                String
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  accessToken           String?
+  refreshToken          String?
+  idToken               String?
+  accessTokenExpiresAt  DateTime?
+  refreshTokenExpiresAt DateTime?
+  scope                 String?
+  password              String?
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  @@index([userId])
+  @@map("account")
+}
+
+model Verification {
+  id         String   @id
+  identifier String
+  value      String
+  expiresAt  DateTime
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([identifier])
+  @@map("verification")
 }
