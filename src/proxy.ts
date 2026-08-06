@@ -55,6 +55,6 @@ export async function proxy(req: NextRequest) {
 }
 
 export const config = {
-    // Apply middleware to all routes except static resources
-    matcher: ['/admin/:path*'],
+    // Apply middleware to routes
+    matcher: ['/admin/:path*', '/dashboard'],
 };
