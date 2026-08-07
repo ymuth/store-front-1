@@ -41,7 +41,7 @@ export default async function ServicesSection() {
                         {services.map((service, index) => (
                             <div key={service.id}>
 
-                                <FadeIn delay={index * 0.2}>
+                                <FadeIn delay={index * 0.2} delayMobile={0}>
                                     <div className={index % 2 != 0 ? "flex flex-col md:flex-col-reverse" : ""}>
 
                                         <div className="overflow-hidden relative aspect-square">
