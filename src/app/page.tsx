@@ -21,9 +21,11 @@ export default function Home() {
 
       {/* 
 
-      TODO: load products from db instead of ts
+      TODO: add sign out route - add sign in and up button to footer 
       TODO: admin dahsboard
       TODO: login for admin, see who requested a booking etc.
+      TODO: make sign up only possible through an email link
+      TODO  fix feedback form on mobile, text going lower on my phone...
       TODO: second email to customer confirming booking?
       TODO: remove clear tables and seed from build script
 

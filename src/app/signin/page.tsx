@@ -28,7 +28,7 @@ export default function SignIn() {
       if (error) {
         setError(error.message ?? 'An error occurred during sign in');
       } else {
-        router.push('/dashboard');
+        router.push('/admin/dashboard');
       }
     } catch (err) {
       setError('An error occurred during sign in');
