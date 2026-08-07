@@ -1,8 +1,6 @@
 import { prisma } from '@prisma-db'
 import Image from "next/image"
 import BD2 from "@public/home/merc.jpg"
-import FadeIn from "@/components/ui/fadeIn"
-import Image404 from "@public/Image404.png"
 import BookingSection from "@/components/home/booking"
 import ServiceImage from '@/components/ui/servicesImage'
 import hero from '@public/home/twin-white.jpg'
