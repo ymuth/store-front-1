@@ -38,7 +38,7 @@ export default function Footer() {
             </div>
             <div className="flex flex-col w-full mx-auto mt-3 text-center gap-1 font-light">
                 <h1>© 2026 Detailing Corp. All rights reserved.</h1>
-                <Link href="/signin" className="font-light hover:font-normal hover:underline">Admin sign in</Link>
+                <Link href="/signin" className="font-light hover:font-normal hover:underline w-fit mx-auto">Admin sign in</Link>
 
             </div>
 
