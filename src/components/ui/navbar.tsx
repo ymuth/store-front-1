@@ -68,11 +68,11 @@ export default function NavBar() {
 
                         <Link
                             href='/admin/dashboard'
-                            className="font-semibold hover:text-amber-400"
+                            className="font-semibold hover:text-rose-600"
                         >Dashboard</Link>
                         <button
                             onClick={() => { signOut(); router.push('/signin'); }}
-                            className="font-semibold cursor-pointer hover:text-amber-400"
+                            className="font-semibold cursor-pointer hover:text-rose-600"
                         >Sign Out</button>
 
                     </div>
@@ -109,12 +109,12 @@ export default function NavBar() {
 
                                     <Link
                                         href='/admin/dashboard'
-                                        className=" border-t mt-5 pt-5 font-semibold mr-auto w-full hover:text-amber-400"
+                                        className=" border-t mt-5 pt-5 font-semibold mr-auto w-full hover:text-rose-600"
                                     // onClick={() => setOpen(false)}
                                     >Dashboard</Link>
                                     <button
                                         onClick={() => { signOut(); router.push('/signin'); }}
-                                        className="block font-semibold mr-auto hover:text-amber-400"
+                                        className="block font-semibold mr-auto hover:text-rose-600"
                                     // onClick={() => setOpen(false)}
                                     >Sign Out</button>
 

@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import EditProductForm from './editProductForm';
 export const dynamic = 'force-dynamic'
 
-export default async function ServiceEditPage({ params }: { params: Promise<{ id: string }> }) {
+export default async function ProductsEditPage({ params }: { params: Promise<{ id: string }> }) {
     const { id } = await params;
 
     const product = await prisma.products.findUnique({

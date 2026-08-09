@@ -4,6 +4,7 @@ import ReviewPopup from "./reviewPopup"
 
 export default async function TestimonialsSection() {
     const testimonials = await prisma.testimonials.findMany({
+        where: {featured: true},
         orderBy: { id: 'asc' },
         take: 5,
     })

@@ -17,13 +17,12 @@ export default function Home() {
       <div id="services"><ServicesSection /></div>
       <ProductsSection />
       <div id="booking"><BookingSection /></div>
-      <TestimonialsSection />
+      <div id="testimonials"><TestimonialsSection /></div>
 
       {/* 
 
       
       
-      TODO: add dynamic loading site wide or to nav bar? dashboard etc?
       TODO: first testimonails => see who requested a booking etc.
       TODO: make sign up only possible through an email link
       TODO  fix feedback form on mobile, text going lower on my phone...
