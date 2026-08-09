@@ -21,7 +21,7 @@ export default function Home() {
 
       {/* 
 
-      TODO: add sign out route - add sign in and up button to footer 
+      
       TODO: admin dahsboard
       TODO: login for admin, see who requested a booking etc.
       TODO: make sign up only possible through an email link

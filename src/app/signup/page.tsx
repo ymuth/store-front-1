@@ -20,23 +20,20 @@ export default function SignUp() {
         setLoading(true);
 
         try {
-            console.log("point 2")
             const { data, error } = await signUp.email({
                 email,
                 password,
                 name,
                 callbackURL: "/signin"
             });
-            console.log(data);
-            console.log(error);
 
             if (error) {
-                setError(error.message ?? 'An error occurred during sign up1');
+                setError(error.message ?? 'An error occurred during sign up');
             } else {
                 router.push('/verify-email-sent');
             }
         } catch (err) {
-            setError(`${err} - An error occurred during sign up2'`);
+            setError(`${err} - An error occurred during sign up'`);
         } finally {
             setLoading(false);
         }

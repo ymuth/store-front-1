@@ -2,9 +2,9 @@
 "use client";
 
 import { useState } from 'react';
-import { signIn } from '@/lib/client';
+import { signIn, useSession } from '@/lib/client';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter, redirect } from 'next/navigation';
 
 export default function SignIn() {
   const [email, setEmail] = useState('');
@@ -12,12 +12,15 @@ export default function SignIn() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const router = useRouter();
-  
+
+  // if already logged in, redirect to dashboard
+  const { data: session, isPending } = useSession();
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError('');
     setLoading(true);
-    
+
     try {
       const { data, error } = await signIn.email({
         email,
@@ -36,7 +39,7 @@ export default function SignIn() {
       setLoading(false);
     }
   };
-  
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
       <div className="max-w-md w-full space-y-8 p-10 bg-white rounded-xl shadow-md">
@@ -49,14 +52,14 @@ export default function SignIn() {
             </Link>
           </p>
         </div>
-        
+
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           {error && (
             <div className="bg-red-50 border-l-4 border-red-500 p-4 text-red-700">
               <p>{error}</p>
             </div>
           )}
-          
+
           <div className="rounded-md shadow-sm -space-y-px">
             <div>
               <label htmlFor="email" className="sr-only">Email address</label>
@@ -87,7 +90,7 @@ export default function SignIn() {
               />
             </div>
           </div>
-          
+
           <div className="flex items-center justify-between">
             <div className="flex items-center">
               <input
@@ -100,14 +103,14 @@ export default function SignIn() {
                 Remember me
               </label>
             </div>
-            
+
             <div className="text-sm">
               <Link href="/forgot-password" className="font-medium text-indigo-600 hover:text-indigo-500">
                 Forgot your password?
               </Link>
             </div>
           </div>
-          
+
           <div>
             <button
               type="submit"

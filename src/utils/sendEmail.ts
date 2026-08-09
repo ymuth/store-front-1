@@ -12,7 +12,6 @@ export async function sendEmail({ to, subject, html }: Props) {
 
 
     try {
-        console.log("point 1")
         const { data, error } = await resend.emails.send({
             from: siteConfig.from,
             to: to,
