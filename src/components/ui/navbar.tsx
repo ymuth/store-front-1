@@ -3,13 +3,14 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { siteConfig } from "@/lib/siteConfig";
 import { useSession, signOut } from "@/lib/client";
-import { redirect } from "next/navigation";
-export const dynamic = 'force-dynamic'
+import { redirect, useRouter } from "next/navigation";
+// export const dynamic = 'force-dynamic'
 
 
 export default function NavBar() {
     const [open, setOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false)
+    const router = useRouter();
 
     const NAV_LINKS = [
         { label: "Services", href: "/services" },
@@ -70,7 +71,7 @@ export default function NavBar() {
                             className="font-semibold hover:text-amber-400"
                         >Dashboard</Link>
                         <button
-                            onClick={() => { signOut(); redirect('/signin'); }}
+                            onClick={() => { signOut(); router.push('/signin'); }}
                             className="font-semibold cursor-pointer hover:text-amber-400"
                         >Sign Out</button>
 
@@ -112,7 +113,7 @@ export default function NavBar() {
                                     // onClick={() => setOpen(false)}
                                     >Dashboard</Link>
                                     <button
-                                        onClick={() => { signOut(); redirect('/signin'); }}
+                                        onClick={() => { signOut(); router.push('/signin'); }}
                                         className="block font-semibold mr-auto hover:text-amber-400"
                                     // onClick={() => setOpen(false)}
                                     >Sign Out</button>
