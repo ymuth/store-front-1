@@ -22,8 +22,8 @@ export default function Home() {
       {/* 
 
       
-      TODO: admin dahsboard
-      TODO: login for admin, see who requested a booking etc.
+      
+      TODO: login for admin, first testimonails => see who requested a booking etc.
       TODO: make sign up only possible through an email link
       TODO  fix feedback form on mobile, text going lower on my phone...
       TODO: second email to customer confirming booking?

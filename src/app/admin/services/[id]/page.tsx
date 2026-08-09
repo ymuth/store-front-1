@@ -19,7 +19,7 @@ export default async function ServiceEditPage({ params }: { params: Promise<{ id
     return (
         <div>
 
-            <div className='bg-linear-to-br from-purple-950 to-mist-600 fixed inset-0 -z-10' />
+            <div className='bg-linear-to-br from-amber-950 from-15% to-gray-900 fixed inset-0 -z-10' />
 
             <div className='mt-10 '>
 

@@ -22,7 +22,7 @@ export default async function ServicesMenu() {
 
     return (
         <div>
-            <div className='bg-mist-700/50 fixed inset-0 -z-10' />
+            <div className='bg-linear-to-br from-amber-950 from-15% to-gray-900 fixed inset-0 -z-10' />
 
             <div className='m-10 mx-auto max-w-7xl overflow-x-auto'>
 
