@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { siteConfig } from "@/lib/siteConfig";
 import { useSession, signOut } from "@/lib/client";
 import { redirect } from "next/navigation";
+export const dynamic = 'force-dynamic'
+
 
 export default function NavBar() {
     const [open, setOpen] = useState(false);
@@ -60,7 +62,7 @@ export default function NavBar() {
 
                 </div>
 
-                {!isPending && session != undefined &&
+                {!isPending && session &&
                     <div className="items-center gap-4  hidden md:flex">
 
                         <Link

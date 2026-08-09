@@ -23,7 +23,8 @@ export default function Home() {
 
       
       
-      TODO: login for admin, first testimonails => see who requested a booking etc.
+      TODO: add dynamic loading site wide or to nav bar? dashboard etc?
+      TODO: first testimonails => see who requested a booking etc.
       TODO: make sign up only possible through an email link
       TODO  fix feedback form on mobile, text going lower on my phone...
       TODO: second email to customer confirming booking?
