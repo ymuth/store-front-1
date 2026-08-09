@@ -96,7 +96,7 @@ export default async function ServicesPage() {
 
             </div>
 
-            <div id="booking"><BookingSection /></div>
+            <div id="booking"><BookingSection services={services}/></div>
         </div >
     )
 }

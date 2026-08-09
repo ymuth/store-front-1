@@ -12,8 +12,6 @@ datasource db {
   provider = "postgresql"
 }
 
-
-
 model User {
   id                String    @id @default(cuid())
   email             String    @unique
@@ -46,7 +44,6 @@ model Session {
   @@index([userId])
   @@map("session")
 }
-
 
 model Account {
   id                    String    @id
@@ -92,14 +89,15 @@ model Products {
 }
 
 model Services {
-  id          Int      @id @default(autoincrement())
+  id          Int        @id @default(autoincrement())
   name        String
   description String
   process     String
-  price       Decimal? @db.Decimal(10, 2)
+  price       Decimal?   @db.Decimal(10, 2)
   image       String?
   category    String?
-  createdAt   DateTime @default(now())
+  createdAt   DateTime   @default(now())
+  bookings    Bookings[]
 }
 
 model Testimonials {
@@ -109,6 +107,23 @@ model Testimonials {
   review    String
   rating    Int
   featured  Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model Bookings {
+  id      Int    @id @default(autoincrement())
+  name    String
+  email   String
+  phone   String?
+  vehicle String
+
+  serviceId    Int?
+  service      Services? @relation(fields: [serviceId], references: [id])
+  otherService String?
+
+  preferredDate DateTime?
+  notes String
+
   createdAt DateTime @default(now())
 }
 

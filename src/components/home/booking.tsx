@@ -3,16 +3,27 @@ import Image from "next/image";
 import bookingBD from "@public/home/twin-white.jpg"
 import { useState } from "react";
 import FadeIn from "../ui/fadeIn";
+import { createBooking } from "./actions/booking";
 
-export default function BookingSection() {
+type Service = {
+    id: number;
+    name: string;
+};
+
+type Props = {
+    services: Service[];
+};
+
+export default function BookingSection({ services }: Props) {
 
     const [form, setForm] = useState({
         name: "",
         email: "",
         phone: "",
         vehicle: "",
-        service: "Exterior Detail",
-        date: "No date specified",
+        service: services[0].id.toString() ?? "",
+        otherService: "",
+        date: "",
         vehicle_notes: ""
     })
     const [status, setStatus] = useState("");
@@ -21,7 +32,7 @@ export default function BookingSection() {
 
 
     // submit function and error handling
-    async function submit(e: React.FormEvent) {
+    async function submit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
 
         setStatus("");
@@ -34,12 +45,29 @@ export default function BookingSection() {
         }
 
         try {
+            // push to db
+            const formData = new FormData(e.currentTarget);
+            await createBooking(formData);
+
+            //get service as name instead of id
+
+            const selectedService = services.find(
+                (service) => service.id.toString() === form.service
+            );
+            const emailFormData = {
+                ...form,
+                service:
+                    form.service === "other"
+                        ? form.otherService
+                        : selectedService?.name ?? "Unknown service",
+            };
+            // send email to business
             const res = await fetch("/api/booking", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify(form)
+                body: JSON.stringify(emailFormData)
             });
 
             const data = await res.json();
@@ -164,14 +192,39 @@ export default function BookingSection() {
                                     onChange={(e) => setForm({ ...form, service: e.target.value })}
                                     required>
 
-                                    <option>Exterior Detail</option>
+                                    {services.map((service: Service) => (
+                                        <option key={service.id} value={service.id}>
+                                            {service.name}
+                                        </option>
+                                    ))}
+
+                                    <option value="other">Other</option>
+
+                                    {/* <option>Exterior Detail</option>
                                     <option>Interior Detail</option>
                                     <option>Full Detail</option>
                                     <option>Ceramic Coating</option>
                                     <option>Headlight Restoration</option>
                                     <option>Body Polish</option>
-                                    <option>Paint Restoration</option>
+                                    <option>Paint Restoration</option> */}
                                 </select>
+
+                                {form.service === "other" && (
+                                    <input
+                                        type="text"
+                                        name="otherService"
+                                        value={form.otherService}
+                                        onChange={(e) =>
+                                            setForm({
+                                                ...form,
+                                                otherService: e.target.value,
+                                            })
+                                        }
+                                        required
+                                        placeholder="What service do you require?"
+                                        className="mt-3 w-full min-w-0 rounded-lg bg-[#2a2a2a] border border-gray-600 p-3 text-white outline-none focus:border-[#b79c5a]"
+                                    />
+                                )}
                             </div>
 
 
