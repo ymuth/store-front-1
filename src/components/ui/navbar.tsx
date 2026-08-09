@@ -68,12 +68,10 @@ export default function NavBar() {
                         <Link
                             href='/admin/dashboard'
                             className="font-semibold hover:text-amber-400"
-                        // onClick={() => setOpen(false)}
                         >Dashboard</Link>
                         <button
                             onClick={() => { signOut(); redirect('/signin'); }}
-                            className="font-semibold hover:text-amber-400"
-                        // onClick={() => setOpen(false)}
+                            className="font-semibold cursor-pointer hover:text-amber-400"
                         >Sign Out</button>
 
                     </div>
@@ -105,7 +103,7 @@ export default function NavBar() {
                                 </Link>
                             ))}
 
-                            {!isPending && session != undefined &&
+                            {!isPending && session &&
                                 <>
 
                                     <Link
