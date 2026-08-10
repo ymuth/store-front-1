@@ -70,7 +70,7 @@ export default function NavBar() {
                             className="font-semibold hover:text-rose-600"
                         >Dashboard</Link>
                         <button
-                            onClick={async () => { await signOut(); router.push('/signin');; router.refresh() }}
+                            onClick={async () => { await signOut(); router.push('/signin'); router.refresh() }}
                             className="font-semibold cursor-pointer hover:text-rose-600"
                         >Sign Out</button>
 
@@ -109,12 +109,11 @@ export default function NavBar() {
                                     <Link
                                         href='/admin/dashboard'
                                         className=" border-t mt-5 pt-5 font-semibold mr-auto w-full hover:text-rose-600"
-                                    // onClick={() => setOpen(false)}
+                                        onClick={() => setOpen(false)}
                                     >Dashboard</Link>
                                     <button
-                                        onClick={async () => { await signOut(); router.push('/signin');; router.refresh() }}
+                                        onClick={async () => { await signOut(); router.push('/signin'); setOpen(false); router.refresh() }}
                                         className="block font-semibold mr-auto hover:text-rose-600"
-                                    // onClick={() => setOpen(false)}
                                     >Sign Out</button>
 
                                 </>

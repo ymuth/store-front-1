@@ -35,14 +35,13 @@ export default async function UsersMenu() {
         <div>
             <div className='bg-linear-to-br from-amber-950 from-15% to-gray-900 fixed inset-0 -z-10' />
 
-            <div className='m-10 mx-auto max-w-7xl overflow-x-auto'>
-                <div className='mb-6 flex w-full items-center justify-between gap-4'>
-                    <Link href='/admin/dashboard' className='rounded-full border border-white/80 bg-white px-4 py-2 font-semibold text-black shadow-sm transition hover:bg-gray-100'>← Back</Link>
-                    <h1 className='flex-1 text-center text-2xl font-bold text-white'>Users & Access</h1>
-                    <div className='w-24' />
-                </div>
+            <div className='md:m-12 mt-14 m-8 flex max-w-full items-center gap-4'>
+                <Link href='/admin/dashboard' className='absolute rounded-full border border-white/80 bg-white px-4 py-2 font-semibold text-black shadow-sm transition hover:bg-gray-100'>← Back</Link>
+                <h1 className=' text-center lg:text-4xl md:text-3xl text-2xl ml-auto font-bold text-white'>Bookings</h1>
+            </div>
+            <div className='m-8 flex justify-center-safe max-w-7xl overflow-x-auto'>
 
-                <div className='space-y-8'>
+                <div className='space-y-8 w-full'>
                     <section>
                         <h2 className='mb-3 text-xl font-semibold text-white'>Signed up users</h2>
                         <table className='w-full border text-black'>

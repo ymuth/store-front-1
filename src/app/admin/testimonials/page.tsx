@@ -30,13 +30,12 @@ export default async function TestimonialsMenu() {
         <div>
             <div className='bg-linear-to-br from-amber-950 from-15% to-gray-900 fixed inset-0 -z-10' />
 
-            <div className='m-10 flex max-w-full items-center  gap-4'>
+            <div className='md:m-12 mt-14 m-8 flex max-w-full items-center gap-4'>
                 <Link href='/admin/dashboard' className='absolute rounded-full border border-white/80 bg-white px-4 py-2 font-semibold text-black shadow-sm transition hover:bg-gray-100'>← Back</Link>
-                <h1 className=' text-center text-2xl  mx-auto font-bold text-white'>Testimonials</h1>
-                <div className='w-24' />
+                <h1 className=' text-center lg:text-4xl md:text-3xl text-2xl ml-auto font-bold text-white'>Testimonials</h1>
             </div>
 
-            <div className='m-10 mx-auto max-w-7xl overflow-x-auto'>
+            <div className='m-10 mt-0 mx-auto max-w-7xl overflow-x-auto'>
 
 
                 <table className='w-full md:m-2 m-5 border text-black'>
@@ -60,7 +59,7 @@ export default async function TestimonialsMenu() {
                                 <td className='text-center border p-4'>{testimonial.id}</td>
                                 <td className='min-w-48 border p-4'>{testimonial.name}</td>
                                 <td className='min-w-max border p-4'>{testimonial.email}</td>
-                                <td className='border p-4'>{testimonial.review}</td>
+                                <td className='border p-4 min-w-100 md:min-w-48'>{testimonial.review}</td>
                                 <td className='text-center min-w-max border p-4'>{String(testimonial.rating)}</td>
                                 <td className={`text-center min-w-max border p-4 border-black font-bold uppercase ${testimonial.featured == true ? 'text-emerald-700' : 'text-rose-700'}`}>{String(testimonial.featured)}</td>
                                 <td className='min-w-48 border p-4 text-center'>{displayeddate(testimonial.createdAt)}</td>
