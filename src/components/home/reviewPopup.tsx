@@ -61,15 +61,24 @@ export default function ReviewPopup() {
                         {status === "done" ?
                             <div>
 
-                                <button onClick={() => setFormOpened(false)} className="flex size-10 text-black items-center justify-center rounded-full bg-white font-sans text-xl font-bold cursor-pointer fixed md:right-22 md:top-22 top-6 right-6">✕</button>
+                                <button
+                                    onClick={() => setFormOpened(false)}
+                                    className="absolute right-4 top-4 flex size-10 items-center justify-center rounded-full bg-white font-sans text-xl font-bold text-black cursor-pointer"
+                                >
+                                    ✕
+                                </button>
                                 <ThankYou rating={submittedRating} />
 
                             </div>
                             :
 
                             <div>
-                                <button onClick={() => setFormOpened(false)} className="flex size-10 text-black items-center justify-center rounded-full bg-white font-sans text-xl font-bold cursor-pointer fixed md:right-22 md:top-22 top-6 right-6">✕</button>
-                                <h1 className="text-2xl"> Leave a review! </h1>
+                                <button
+                                    onClick={() => setFormOpened(false)}
+                                    className="absolute right-4 top-4 flex size-10 items-center justify-center rounded-full bg-white font-sans text-xl font-bold text-black cursor-pointer"
+                                >
+                                    ✕
+                                </button>                               <h1 className="text-2xl"> Leave a review! </h1>
                                 <h3 className="text-gray-400"> Thought we were great; or have some room for improvement?</h3>
                                 <h3 className="text-gray-400"> We&apos;d love to hear back from you!</h3>
 
