@@ -25,8 +25,26 @@ export const metadata: Metadata = {
     default: "Detailing Corp",
     template: "%s | Detailing Corp",
   },
+
   description:
     "Professional car detailing services, products and vehicle care.",
+
+  openGraph: {
+    title: "Detailing Corp",
+    description:
+      "Professional car detailing services, products and vehicle care.",
+    url: "https://store-front-1.vercel.app",
+    siteName: "Detailing Corp",
+    images: [
+      {
+        url: "/home/twin-white.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Detailing Corp",
+      },
+    ],
+    type: "website",
+  },
 };
 
 export default function RootLayout({
