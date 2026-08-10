@@ -104,7 +104,7 @@ export default function BookingSection({ services }: Props) {
                         className="object-cover object-center "
                     />
                 </div>
-                <FadeIn delay={0.4}>
+                <FadeIn delay={0.2}>
                     <h1 className="text-5xl border-b-3 border-white text-white mx-auto text-center font-bold w-fit pb-3 mb-10">
                         Secure a Booking Today
                     </h1>
