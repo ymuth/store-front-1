@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { siteConfig } from "@/lib/siteConfig";
 import { useSession, signOut } from "@/lib/client";
 import { useRouter } from "next/navigation";
-// export const dynamic = 'force-dynamic'
 
 
 export default function NavBar() {

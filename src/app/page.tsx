@@ -27,7 +27,6 @@ export default async function Home() {
       {/* 
 
       
-      TODO: add reset password
       TODO: add user settings to dashbaord
       TODO: fix feedback form on mobile, text going lower on my phone...
       TODO: X ------------ no need ------------- second email to customer confirming booking?
