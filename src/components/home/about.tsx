@@ -43,7 +43,7 @@ export default function AboutSection() {
 
                                 <h3 className="md:text-4xl text-3xl font-semibold border-b-2 pb-3">What we do</h3>
                                 <p className="py-10 md:text-xl text-lg text-gray-300">We offer precise, high-quality car cleaning services, including interior and exterior cleaning, seat and carpet shampooing, headlight restoration, and body polishing. Entrust your vehicle to us for sparkling results.</p>
-                                <Link href="/about" className="mt-10 mx-auto p-5 text-white font-semibold bg-linear-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-linear-to-br rounded-3xl hover:opacity-90 transition-opacity">Learn More</Link>
+                                <Link aria-label="About Page" href="/about" className="mt-10 mx-auto p-5 text-white font-semibold bg-linear-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-linear-to-br rounded-3xl hover:opacity-90 transition-opacity">Learn More</Link>
 
                             </div>
                         </FadeIn>
