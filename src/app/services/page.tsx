@@ -18,7 +18,7 @@ export default async function ServicesPage() {
 
         <div>
 
-            < div className="min-h-dvh flex flex-col" >
+            < div className="min-h-dvh flex justify-center-safe flex-col" >
 
                 {/* Background + fade */}
                 < div className="fixed inset-0 -z-10" >
@@ -35,7 +35,7 @@ export default async function ServicesPage() {
 
 
                 {/* Slogan + services link */}
-                <div className="md:m-10 md:p-10  flex flex-col text-white p-5 m-3">
+                <div className="md:m-10 md:p-10 my-auto flex flex-col text-white p-5 m-3">
 
                     <h1 className="md:text-5xl  text-2xl text-center font-bold border-b-3 p-5 pb-8">Ensuring Excellence in Every Detail</h1>
                     <p className=" text-xl p-5 text-center">View all our Services below, or skip straight to the booking page!</p>

@@ -4,8 +4,8 @@ import { prismaAdapter } from "better-auth/adapters/prisma";
 import { prisma, } from "@prisma-db";
 import { sendEmail } from "@/utils/sendEmail";
 
-const DAY = 24 * 60 * 60 * 1000;
-const MINUTE = 60 * 1000;
+const DAY = 24 * 60 * 60;
+const MINUTE = 60;
 
 export const auth = betterAuth({
 
@@ -33,6 +33,22 @@ export const auth = betterAuth({
             passwordTooWeak: "Password must contain at least 8 characters, including uppercase, lowercase, numbers, and special characters",
         },
 
+        sendResetPassword: async ({ user, url }) => {
+            await sendEmail({
+                to: user.email,
+                subject: "Reset your password",
+                html: `
+                <h1>Reset your password</h1>
+                <p>Hello ${user.name},</p>
+                <p>Click the link below to reset your password:</p>
+                <a href="${url}">Reset Password</a>
+                <p>If you didn't request this, you can ignore this email.</p>
+            `,
+            });
+        },
+
+        resetPasswordTokenExpiresIn: 30 * MINUTE,
+        revokeSessionsOnPasswordReset: true,
         requireEmailVerification: true,
 
     },
