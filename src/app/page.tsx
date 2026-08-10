@@ -24,14 +24,8 @@ export default async function Home() {
       <div id="booking"><BookingSection services={services} /></div>
       <div id="testimonials"><TestimonialsSection /></div>
 
-      {/* 
-
       
-      TODO: fix feedback form on mobile, text going lower on my phone...
-      TODO: X ------------ no need ------------- second email to customer confirming booking?
-      TODO: remove clear tables and seed from build script
-
-       */}
+      
 
 
 
