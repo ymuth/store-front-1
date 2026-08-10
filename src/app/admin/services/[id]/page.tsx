@@ -25,7 +25,7 @@ export default async function ServiceEditPage({ params }: { params: Promise<{ id
             <div className='mt-10 '>
 
                 <div className='mb-6 flex w-full items-center justify-between gap-4 px-5'>
-                    <Link href='/admin/services' className='rounded-full border border-white/80 bg-white px-4 py-2 font-semibold text-black shadow-sm transition hover:bg-gray-100'>← Back</Link>
+                    <Link href='/admin/services' className='absolute rounded-full border border-white/80 bg-white px-4 py-2 font-semibold text-black shadow-sm transition hover:bg-gray-100'>← Back</Link>
                     <h1 className='flex-1 text-center text-2xl font-bold text-white'>Edit {service.name}</h1>
                     <div className='w-24' />
                 </div>
