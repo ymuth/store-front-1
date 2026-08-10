@@ -34,4 +34,5 @@ export async function updateTestimonial(formData: FormData) {
 
     revalidatePath("/admin/testimonials");
     revalidatePath(`/admin/testimonials/${id}`);
+    revalidatePath("/");
 }
