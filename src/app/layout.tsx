@@ -21,8 +21,12 @@ export const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Detailing Corp",
-  description: "Expert Detailing and Aftercare for Premium Vehicles",
+  title: {
+    default: "Detailing Corp",
+    template: "%s | Detailing Corp",
+  },
+  description:
+    "Professional car detailing services, products and vehicle care.",
 };
 
 export default function RootLayout({
