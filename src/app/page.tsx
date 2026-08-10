@@ -6,6 +6,28 @@ import BookingSection from "@/components/home/booking";
 import TestimonialsSection from "@/components/home/testimonials";
 import { prisma } from '@prisma-db'
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+
+  name: "Detailing Corp",
+
+  description:
+    "Professional car detailing and vehicle care services.",
+
+  url: "https://store-front-1.vercel.app",
+
+  priceRange: "££",
+
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Sheffield",
+    addressRegion: "South Yorkshire",
+    addressCountry: "GB",
+  },
+
+};
+
 
 export default async function Home() {
   const services = await prisma.services.findMany({
@@ -13,7 +35,14 @@ export default async function Home() {
   });
 
   return (
-    <div className="">
+    <div>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
 
 
 
@@ -24,8 +53,8 @@ export default async function Home() {
       <div id="booking"><BookingSection services={services} /></div>
       <div id="testimonials"><TestimonialsSection /></div>
 
-      
-      
+
+
 
 
 
