@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, } from "react";
+import { useEffect, useState, } from "react";
 import { submitTestimonial } from "@/app/actions/testimonials"
 import { siteConfig } from "@/lib/siteConfig";
 
@@ -20,6 +20,32 @@ export default function ReviewPopup() {
     const [error, setError] = useState("");
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+    useEffect(() => {
+        if (!formOpened) return;
+
+        const originalOverflow = document.body.style.overflow;
+        const originalHeight = document.body.style.height;
+        const originalPosition = document.body.style.position;
+        const originalTop = document.body.style.top;
+        const originalLeft = document.body.style.left;
+        const originalRight = document.body.style.right;
+
+        document.body.style.overflow = "hidden";
+        document.body.style.height = "100dvh";
+        document.body.style.position = "fixed";
+        document.body.style.top = "0";
+        document.body.style.left = "0";
+        document.body.style.right = "0";
+
+        return () => {
+            document.body.style.overflow = originalOverflow;
+            document.body.style.height = originalHeight;
+            document.body.style.position = originalPosition;
+            document.body.style.top = originalTop;
+            document.body.style.left = originalLeft;
+            document.body.style.right = originalRight;
+        };
+    }, [formOpened]);
 
     async function handleSubmit(e: React.FormEvent) {
         e.preventDefault()
@@ -55,8 +81,8 @@ export default function ReviewPopup() {
             <button onClick={() => setFormOpened(true)} className="cursor-pointer mx-auto p-5 text-white font-semibold bg-linear-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-linear-to-br rounded-3xl hover:opacity-90 transition-opacity">Leave a Review</button>
 
             {formOpened && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-5 overflow-y-auto">
-                    <div className="relative w-full max-w-5xl max-h-[90dvh] overflow-y-auto overscroll-contain scrollbar-thin p-5 md:px-10 rounded-2xl border border-gray-600 shadow-xl shadow-black bg-linear-to-br from-black via-20% via-gray-950 to-gray-900">
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-5 overflow-y-auto overscroll-none">
+                    <div className="relative w-full max-w-5xl max-h-[90dvh] overflow-y-auto overscroll-contain scrollbar-thin p-5 md:px-10 rounded-2xl border border-gray-600 shadow-xl shadow-black bg-linear-to-br from-black via-20% via-gray-950 to-gray-900" style={{ WebkitOverflowScrolling: "touch" }}>
 
                         {status === "done" ?
                             <div>
@@ -99,7 +125,7 @@ export default function ReviewPopup() {
                                                 placeholder="e.g John Smith..."
                                                 onChange={(e) => setForm({ ...form, name: e.target.value })}
                                                 value={form.name}
-                                                className="w-full min-w-0 rounded-lg bg-[#2a2a2a] border border-gray-600 p-3 text-white outline-none focus:border-[#b79c5a]"
+                                                className="w-full min-w-0 rounded-lg bg-[#2a2a2a] border border-gray-600 p-3 text-[16px] text-white outline-none focus:border-[#b79c5a]"
                                             />
                                         </div>
 
@@ -115,7 +141,7 @@ export default function ReviewPopup() {
                                                 placeholder="example@email.com"
                                                 onChange={(e) => setForm({ ...form, email: e.target.value })}
                                                 value={form.email}
-                                                className="w-full min-w-0 rounded-lg bg-[#2a2a2a] border border-gray-600 p-3 text-white outline-none focus:border-[#b79c5a]"
+                                                className="w-full min-w-0 rounded-lg bg-[#2a2a2a] border border-gray-600 p-3 text-[16px] text-white outline-none focus:border-[#b79c5a]"
                                             />
                                         </div>
 
@@ -156,7 +182,7 @@ export default function ReviewPopup() {
                                             placeholder="How'd your experience with us go; what went well or could be improved upon?"
                                             onChange={(e) => setForm({ ...form, review: e.target.value })}
                                             value={form.review}
-                                            className="rounded-lg bg-[#2a2a2a] border border-gray-600 p-3 text-white outline-none focus:border-[#b79c5a] resize-none"
+                                            className="rounded-lg bg-[#2a2a2a] border border-gray-600 p-3 text-[16px] text-white outline-none focus:border-[#b79c5a] resize-none"
                                         />
                                     </div>
 
