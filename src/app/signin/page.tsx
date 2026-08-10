@@ -1,10 +1,10 @@
 // app/signin/page.tsx
 "use client";
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { signIn, useSession } from '@/lib/client';
 import Link from 'next/link';
-import { useRouter, redirect } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 export default function SignIn() {
   const [email, setEmail] = useState('');
@@ -15,6 +15,19 @@ export default function SignIn() {
 
   // if already logged in, redirect to dashboard
   const { data: session, isPending } = useSession();
+  useEffect(() => {
+    if (!isPending && session) {
+      router.replace("/admin/dashboard");
+    }
+  }, [isPending, session, router]);
+
+  if (isPending) {
+    return <p className='m-auto text-center w-full text-white'>Loading...</p>;
+  }
+
+  if (session) {
+    return null;
+  }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -22,7 +35,7 @@ export default function SignIn() {
     setLoading(true);
 
     try {
-      const { data, error } = await signIn.email({
+      const { error } = await signIn.email({
         email,
         password,
         rememberMe: true,
@@ -34,6 +47,7 @@ export default function SignIn() {
         router.push('/admin/dashboard');
       }
     } catch (err) {
+      console.error(err);
       setError('An error occurred during sign in');
     } finally {
       setLoading(false);

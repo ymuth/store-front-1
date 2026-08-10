@@ -2,7 +2,6 @@
 
 import { useState, } from "react";
 import { submitTestimonial } from "@/app/actions/testimonials"
-import { div } from "motion/react-client";
 import { siteConfig } from "@/lib/siteConfig";
 
 
@@ -70,7 +69,7 @@ export default function ReviewPopup() {
                         <button onClick={() => setFormOpened(false)} className="flex size-10 text-black items-center justify-center rounded-full bg-white font-sans text-xl font-bold cursor-pointer fixed md:right-22 md:top-22 top-6 right-6">✕</button>
                         <h1 className="text-2xl"> Leave a review! </h1>
                         <h3 className="text-gray-400"> Thought we were great; or have some room for improvement?</h3>
-                        <h3 className="text-gray-400"> We'd love to hear back from you!</h3>
+                        <h3 className="text-gray-400"> We&apos;d love to hear back from you!</h3>
 
                         <form onSubmit={handleSubmit}>
                             {/* <form  className="mx-auto w-full max-w-5xl bg-[#191919]  border border-gray-600 shadow-xl"> */}
@@ -161,7 +160,7 @@ export default function ReviewPopup() {
                                 </button>
 
                                 <div className=" text-gray-500 my-auto">
-                                    <p>We'd love to hear from you, feel free to leave us a message!</p>
+                                    <p>We&apos;d love to hear from you, feel free to leave us a message!</p>
                                 </div>
                             </div>
 
@@ -199,8 +198,8 @@ function ThankYou({ rating, }: { rating: number }) {
             {isPositive ? (
                 <>
                     <h2 className="text-2xl font-bold">Thank you! 🎉</h2>
-                    <p>We're so glad you had a great experience with us.</p>
-                    <p>If you have a moment, it'd really help us out if you left a Google review too!</p>
+                    <p>We&apos;re so glad you had a great experience with us.</p>
+                    <p>If you have a moment, it&apos;d really help us out if you left a Google review too!</p>
                     <a
                         href={`${siteConfig.googleReviewLink}`}
                         target="_blank"
@@ -212,9 +211,9 @@ function ThankYou({ rating, }: { rating: number }) {
                 </>
             ) : (
                 <>
-                    <h2 className="text-2xl font-bold">We're sorry to hear that</h2>
+                    <h2 className="text-2xl font-bold">We&apos;re sorry to hear that</h2>
                     <p>Thank you for your honesty — it genuinely helps us improve.</p>
-                    <p>We've noted your feedback and someone from our team will look into it.</p>
+                    <p>We&apos;ve noted your feedback and someone from our team will look into it.</p>
                 </>
             )}
         </div>

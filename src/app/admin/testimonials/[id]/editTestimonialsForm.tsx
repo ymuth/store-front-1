@@ -3,7 +3,7 @@
 
 import { updateTestimonial } from "./actions";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 type Testimonial = {
     id: number;
@@ -36,13 +36,6 @@ export default function EditTestimonialForm({
     const [featured, setFeatured] = useState(testimonial.featured);
 
     // Update the form if the testimonial prop changes
-    useEffect(() => {
-        setName(testimonial.name);
-        setEmail(testimonial.email);
-        setReview(testimonial.review);
-        setRating(testimonial.rating.toString());
-        setFeatured(testimonial.featured);
-    }, [testimonial]);
 
     async function handleSubmit(
         e: React.FormEvent<HTMLFormElement>

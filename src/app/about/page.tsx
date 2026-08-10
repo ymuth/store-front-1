@@ -27,7 +27,7 @@ export default function AboutPage() {
                     <h1 className="md:text-7xl md:text-left text-5xl text-center font-bold border-b-3 p-5 pb-8">About us</h1>
                     <div className="md:text-center text-2xl p-5 text-center font-mono">
                         <p>Detailing Corp was started in 2022 during the lockdown by John Doe and James Adam <br/> — </p>
-                        <p>We've got a a love for cars and an eye for perfection so if you want your car looking the best it has we'd love for you to contact us!</p>
+                        <p>We&apos;ve got a a love for cars and an eye for perfection so if you want your car looking the best it has we&apos;d love for you to contact us!</p>
                         <br/>
                         <p className="font-poppins font-semibold">Have a look at out services and products below:</p>
                     </div>

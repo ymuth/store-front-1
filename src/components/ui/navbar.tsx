@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { siteConfig } from "@/lib/siteConfig";
 import { useSession, signOut } from "@/lib/client";
-import { redirect, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 // export const dynamic = 'force-dynamic'
 
 
@@ -71,7 +71,7 @@ export default function NavBar() {
                             className="font-semibold hover:text-rose-600"
                         >Dashboard</Link>
                         <button
-                            onClick={() => { signOut(); router.push('/signin'); }}
+                            onClick={async () => { await signOut(); router.push('/signin');; router.refresh() }}
                             className="font-semibold cursor-pointer hover:text-rose-600"
                         >Sign Out</button>
 
@@ -113,7 +113,7 @@ export default function NavBar() {
                                     // onClick={() => setOpen(false)}
                                     >Dashboard</Link>
                                     <button
-                                        onClick={() => { signOut(); router.push('/signin'); }}
+                                        onClick={async () => { await signOut(); router.push('/signin');; router.refresh() }}
                                         className="block font-semibold mr-auto hover:text-rose-600"
                                     // onClick={() => setOpen(false)}
                                     >Sign Out</button>

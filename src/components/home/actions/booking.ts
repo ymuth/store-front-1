@@ -14,7 +14,7 @@ export async function createBooking(formData: FormData) {
 
     const isOther = serviceValue === "other";
 
-    const booking = await prisma.bookings.create({
+    await prisma.bookings.create({
         data: {
             name,
             email,

@@ -21,7 +21,7 @@ export default function ServiceColumn({ src, alt, fallback, className }: Props) 
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw"
             priority
-            className={`${showFallback ? "object-fit" : "object-cover"} object-left`}
+            className={`${showFallback ? "object-fit" : "object-cover"} object-left ${className}`}
             onError={() => setFailed(true)}
         />
     )

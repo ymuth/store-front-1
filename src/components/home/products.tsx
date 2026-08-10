@@ -40,7 +40,7 @@ export default async function ProductsSection() {
                 <FadeIn>
                     <div className="md:hidden flex my-auto pt-5 md:justify-center-safe overflow-y-clip flex-row gap-4 overflow-x-auto pb-3 scrollbar-thumb-white">
 
-                        {products.map((product, index) => (
+                        {products.map((product) => (
 
 
                             <ProductCard

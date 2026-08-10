@@ -1,6 +1,5 @@
 "use client";
 
-import { Decimal } from "@prisma/client/runtime/index-browser";
 import { updateService } from "./actions";
 import { useRouter } from "next/navigation";
 import { useState } from "react";

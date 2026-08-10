@@ -10,11 +10,11 @@ export default function VerifyEmailSent() {
         <h1 className="text-2xl font-bold text-gray-900">Check your email</h1>
 
         <p className="text-gray-600">
-          We've sent a verification link to your email address. Click the link to activate your account.
+          We&apos;ve sent a verification link to your email address. Click the link to activate your account.
         </p>
 
         <p className="text-sm text-gray-400">
-          Didn't get it? Check your spam folder, or try signing up again in a few minutes.
+          Didn&apos;t get it? Check your spam folder, or try signing up again in a few minutes.
         </p>
 
         <Link

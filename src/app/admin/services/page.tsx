@@ -41,7 +41,7 @@ export default async function ServicesMenu() {
 
                     <thead>
                         <tr className='text-left bg-neutral-200'>
-                            {fields.map((field, index) => (
+                            {fields.map((field) => (
                                 <th key={field} className='border p-4 font-extrabold'>{field}</th>
                             ))}
                         </tr>

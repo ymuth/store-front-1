@@ -273,7 +273,7 @@ export default function BookingSection({ services }: Props) {
                             </button>
 
                             <div className=" text-gray-500 my-auto">
-                                <p>*We'd love to hear from you, feel free to contact us for a quote!</p>
+                                <p>*We&apos;d love to hear from you, feel free to contact us for a quote!</p>
                             </div>
                         </div>
 

@@ -2,7 +2,7 @@
 
 import { updateProduct } from "./actions";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 type Product = {
     id: number;
@@ -32,15 +32,7 @@ export default function EditProductForm({ product, className }: Props) {
     const [inStock, setInStock] = useState(product.inStock);
     const [category, setCategory] = useState(product.category ?? "");
 
-    // Resync local state whenever the underlying product prop actually changes
-    useEffect(() => {
-        setName(product.name);
-        setDescription(product.description);
-        setPrice(product.price.toString());
-        setImage(product.image ?? "");
-        setInStock(product.inStock);
-        setCategory(product.category ?? "");
-    }, [product]);
+
 
 
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {

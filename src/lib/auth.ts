@@ -1,12 +1,10 @@
-import { APIError, betterAuth, User } from "better-auth";
+import { APIError, betterAuth } from "better-auth";
 import { nextCookies } from "better-auth/next-js";
 import { prismaAdapter } from "better-auth/adapters/prisma";
 import { prisma, } from "@prisma-db";
 import { sendEmail } from "@/utils/sendEmail";
 
-type emailProps = { email: string, token: string, user: User }
 const DAY = 24 * 60 * 60 * 1000;
-const HOUR = 60 * 60 * 1000;
 const MINUTE = 60 * 1000;
 
 export const auth = betterAuth({
@@ -42,7 +40,7 @@ export const auth = betterAuth({
     emailVerification: {
         sendOnSignUp: true,
 
-        sendVerificationEmail: async ({ user, url, token }) => {
+        sendVerificationEmail: async ({ user, url }) => {
             console.log("sending verification email to:", user.email);
 
             await sendEmail({

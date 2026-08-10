@@ -15,7 +15,7 @@ export default function ContactPage() {
             <div className="text-center p-3 flex flex-col">
                 <h1 className="text-3xl font-bold m-5 border-b-2 w-fit mx-auto">Get in Touch</h1>
                 <h3 className="text-xl">Have a question, feedback, or want a quote?</h3>
-                <p className=" italic ">We're happy to help!</p>
+                <p className=" italic ">We&apos;re happy to help!</p>
             </div>
 
             <div className="grid my-5 md:grid-cols-2 md:grid-rows-2 auto-cols-auto text-lg md:mx-auto md:w-[65%] gap-3 mx-5 p-5 bg-white text-black">

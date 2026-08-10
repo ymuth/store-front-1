@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import { auth } from "./lib/auth";
 import { getSessionCookie } from "better-auth/cookies";
 
 export async function proxy(req: NextRequest) {

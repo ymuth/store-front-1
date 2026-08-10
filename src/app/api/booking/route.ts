@@ -19,7 +19,7 @@ export async function POST(req: Request) {
             );
         }
 
-        const { data, error } = await resend.emails.send({
+        const { error } = await resend.emails.send({
             from: "Detailing Corp <onboarding@resend.dev>",
             to: recipient,
             replyTo: email,
@@ -47,9 +47,9 @@ export async function POST(req: Request) {
             success: true
         });
 
-    } catch (error) {
+    } catch (err) {
         return Response.json(
-            { error: "Failed to send email" },
+            { error: "Failed to send email:", err },
             { status: 500 }
         );
     }

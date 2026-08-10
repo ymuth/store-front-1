@@ -1,5 +1,3 @@
-import Image, { StaticImageData } from "next/image";
-import image404 from "@public/Image404.png"
 import { Product } from "@/types/products";
 import ProductImage from "./productsImage";
 

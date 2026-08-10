@@ -4,7 +4,6 @@ import Link from "next/link"
 import BD2 from "@public/home/merc.jpg"
 import FadeIn from "../ui/fadeIn"
 import ServiceImage from "../ui/servicesImage"
-import image404 from "@public/Image404.png"
 
 
 export default async function ServicesSection() {

@@ -6,6 +6,7 @@ import { signUp } from '@/lib/client';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 
+
 function SignUpForm() {
     const searchParams = useSearchParams();
     const token = searchParams.get('token');
@@ -32,13 +33,16 @@ function SignUpForm() {
         setLoading(true);
 
         try {
-            const { data, error } = await signUp.email({
+
+            const { error } = await signUp.email({
                 email,
                 password,
                 name,
                 token,
                 callbackURL: "/signin"
-            } as any);
+            } as Parameters<typeof signUp.email>[0] & {
+                token: string;
+            });
 
             if (error) {
                 setError(error.message ?? 'An error occurred during sign up');
