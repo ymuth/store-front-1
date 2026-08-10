@@ -11,9 +11,10 @@ export default async function Home() {
   const services = await prisma.services.findMany({
     orderBy: { id: "asc" },
   });
-  
+
   return (
     <div className="">
+
 
 
       <HeroSection />
@@ -26,7 +27,6 @@ export default async function Home() {
       {/* 
 
       
-      TODO: add user settings to dashbaord
       TODO: fix feedback form on mobile, text going lower on my phone...
       TODO: X ------------ no need ------------- second email to customer confirming booking?
       TODO: remove clear tables and seed from build script

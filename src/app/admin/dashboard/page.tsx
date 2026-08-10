@@ -24,6 +24,7 @@ export default function Dashboard() {
                         <Link className="min-w-40 p-5 text-white text-center font-semibold bg-linear-to-r from-mist-700 via-mist-600 to-mist-500 hover:bg-linear-to-br rounded-3xl hover:opacity-90 transition-opacity" href="/admin/products">Products</Link>
                         <Link className="min-w-40 p-5 text-white text-center font-semibold bg-linear-to-r from-mist-700 via-mist-600 to-mist-500 hover:bg-linear-to-br rounded-3xl hover:opacity-90 transition-opacity" href="/admin/testimonials">Testimonials</Link>
                         <Link className="min-w-40 p-5 text-white text-center font-semibold bg-linear-to-r from-mist-700 via-mist-600 to-mist-500 hover:bg-linear-to-br rounded-3xl hover:opacity-90 transition-opacity" href="/admin/bookings">Bookings</Link>
+                        <Link className="min-w-40 p-5 text-white text-center font-semibold bg-linear-to-r from-mist-700 via-mist-600 to-mist-500 hover:bg-linear-to-br rounded-3xl hover:opacity-90 transition-opacity" href="/admin/users">Users</Link>
 
                     </div>
                     <InviteAdminForm />

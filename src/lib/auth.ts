@@ -132,7 +132,7 @@ export const auth = betterAuth({
         max: 100,      // default max requests per window, applies broadly
         customRules: {
             "/sign-in/email": { window: 60, max: 5 },  // stricter for login specifically
-            "/sign-up/email": { window: 3600, max: 3 }, // stricter for signup, prevents bot spam
+            "/sign-up/email": { window: 1800, max: 3 }, // stricter for signup, prevents bot spam
         },
     },
 
