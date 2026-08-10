@@ -55,8 +55,8 @@ export default function ReviewPopup() {
             <button onClick={() => setFormOpened(true)} className="cursor-pointer mx-auto p-5 text-white font-semibold bg-linear-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-linear-to-br rounded-3xl hover:opacity-90 transition-opacity">Leave a Review</button>
 
             {formOpened && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-5">
-                    <div className="relative w-full max-w-5xl max-h-[90dvh] overflow-y-auto scrollbar-thin p-5 md:px-10 rounded-2xl border border-gray-600 shadow-xl shadow-black bg-linear-to-br from-black via-20% via-gray-950 to-gray-900">
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-5 overflow-y-auto">
+                    <div className="relative w-full max-w-5xl max-h-[90dvh] overflow-y-auto overscroll-contain scrollbar-thin p-5 md:px-10 rounded-2xl border border-gray-600 shadow-xl shadow-black bg-linear-to-br from-black via-20% via-gray-950 to-gray-900">
 
                         {status === "done" ?
                             <div>
