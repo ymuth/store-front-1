@@ -1,18 +1,30 @@
 // app/signup/page.tsx
 "use client";
 
-import { useState } from 'react';
+import { Suspense, useState } from 'react';
 import { signUp } from '@/lib/client';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 
-export default function SignUp() {
-    const [email, setEmail] = useState('');
+function SignUpForm() {
+    const searchParams = useSearchParams();
+    const token = searchParams.get('token');
+    const prefilledEmail = searchParams.get('email') ?? '';
+
+    const [email, setEmail] = useState(prefilledEmail);
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const router = useRouter();
+
+    if (!token) {
+        return (
+            <div className="min-h-dvh flex items-center justify-center bg-[#121212] p-5">
+                <p className="text-white">This sign-up link is invalid or missing. Please request an invitation.</p>
+            </div>
+        )
+    }
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -24,8 +36,9 @@ export default function SignUp() {
                 email,
                 password,
                 name,
+                token,
                 callbackURL: "/signin"
-            });
+            } as any);
 
             if (error) {
                 setError(error.message ?? 'An error occurred during sign up');
@@ -33,7 +46,8 @@ export default function SignUp() {
                 router.push('/verify-email-sent');
             }
         } catch (err) {
-            setError(`${err} - An error occurred during sign up'`);
+            console.error(err)
+            setError('An error occurred during sign up');
         } finally {
             setLoading(false);
         }
@@ -117,4 +131,12 @@ export default function SignUp() {
             </div>
         </div>
     );
+}
+
+export default function SignUpPage() {
+    return (
+        <Suspense fallback={<div className="min-h-dvh bg-gray-50" />}>
+            <SignUpForm />
+        </Suspense>
+    )
 }

@@ -1,4 +1,4 @@
-import { betterAuth, User } from "better-auth";
+import { APIError, betterAuth, User } from "better-auth";
 import { nextCookies } from "better-auth/next-js";
 import { prismaAdapter } from "better-auth/adapters/prisma";
 import { prisma, } from "@prisma-db";
@@ -62,7 +62,45 @@ export const auth = betterAuth({
 
 
 
-    // email configuration
+    databaseHooks: {
+        user: {
+            create: {
+                before: async (user, ctx) => {
+                    const token = ctx?.body?.token
+
+                    if (!token) {
+                        throw new APIError("BAD_REQUEST", {
+                            message: "An invitation is required to sign up.",
+                        })
+                    }
+
+                    const invitation = await prisma.invitation.findUnique({
+                        where: { token },
+                    })
+
+                    if (
+                        !invitation ||
+                        invitation.usedAt ||
+                        invitation.expiresAt < new Date() ||
+                        invitation.email.toLowerCase() !== user.email.toLowerCase()
+                    ) {
+                        throw new APIError("BAD_REQUEST", {
+                            message: "This invitation is invalid or has expired.",
+                        })
+                    }
+
+                    return { data: user } // allow creation to proceed
+                },
+                after: async (user) => {
+                    // mark the invitation as used now that the account genuinely exists
+                    await prisma.invitation.updateMany({
+                        where: { email: user.email, usedAt: null },
+                        data: { usedAt: new Date() },
+                    })
+                },
+            },
+        },
+    },
 
 
     // session configuration

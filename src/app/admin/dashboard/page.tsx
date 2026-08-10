@@ -1,3 +1,4 @@
+import InviteAdminForm from "@/components/admin/inviteAdminForm";
 import Link from "next/link";
 
 
@@ -25,6 +26,7 @@ export default function Dashboard() {
                         <Link className="min-w-40 p-5 text-white text-center font-semibold bg-linear-to-r from-mist-700 via-mist-600 to-mist-500 hover:bg-linear-to-br rounded-3xl hover:opacity-90 transition-opacity" href="/admin/bookings">Bookings</Link>
 
                     </div>
+                    <InviteAdminForm />
 
 
                 </div>
