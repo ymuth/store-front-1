@@ -6,7 +6,6 @@ import BookingSection from "@/components/home/booking";
 import TestimonialsSection from "@/components/home/testimonials";
 import { prisma } from '@prisma-db'
 
-// export const dynamic = 'force-dynamic'
 
 export default async function Home() {
   const services = await prisma.services.findMany({

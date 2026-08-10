@@ -24,5 +24,8 @@ export async function updateProduct(formData: FormData) {
 
     revalidatePath("/admin/products");
     revalidatePath(`/admin/products/${id}`);
+    revalidatePath(`/`);
+    revalidatePath(`/products`);
+
     
 }

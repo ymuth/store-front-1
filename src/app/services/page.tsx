@@ -6,7 +6,6 @@ import ServiceImage from '@/components/ui/servicesImage'
 import hero from '@public/home/twin-white.jpg'
 import Link from 'next/link'
 
-export const dynamic = 'force-dynamic'
 
 export default async function ServicesPage() {
     const services = await prisma.services.findMany({
