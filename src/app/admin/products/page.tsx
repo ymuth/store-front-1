@@ -1,6 +1,5 @@
 import { prisma } from '@prisma-db';
 import Link from 'next/link';
-import { Decimal } from '@prisma/client/runtime/index-browser';
 
 export default async function ProductsMenu() {
     const products = await prisma.products.findMany({
@@ -30,6 +29,12 @@ export default async function ProductsMenu() {
             <div className='bg-linear-to-br from-amber-950 from-15% to-gray-900 fixed inset-0 -z-10' />
 
             <div className='m-10 mx-auto max-w-7xl overflow-x-auto'>
+
+                <div className='mb-6 flex w-full items-center justify-between gap-4'>
+                    <Link href='/admin/dashboard' className='rounded-full border border-white/80 bg-white px-4 py-2 font-semibold text-black shadow-sm transition hover:bg-gray-100'>← Back</Link>
+                    <h1 className='flex-1 text-center text-2xl font-bold text-white'>Products</h1>
+                    <div className='w-24' />
+                </div>
 
                 <table className='w-full md:m-2 m-5 border text-black'>
 

@@ -27,11 +27,10 @@ export default async function Home() {
       {/* 
 
       
-      
-      TODO:  see who requested a booking etc.
+      TODO: fix title centering of admin/{feature}
       TODO: make sign up only possible through an email link
       TODO: add user settings to bokdashbaord
-      TODO  fix feedback form on mobile, text going lower on my phone...
+      TODO: fix feedback form on mobile, text going lower on my phone...
       TODO: second email to customer confirming booking?
       TODO: remove clear tables and seed from build script
 

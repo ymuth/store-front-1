@@ -1,4 +1,5 @@
 import { prisma } from '@prisma-db'
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import EditProductForm from './editProductForm';
 export const dynamic = 'force-dynamic'
@@ -25,7 +26,11 @@ export default async function ProductsEditPage({ params }: { params: Promise<{ i
 
             <div className='mt-10 '>
 
-                <h1 className='text-center w-full lg:text-3xl md:text-2xl text-xl'>Edit {product.name}</h1>
+                <div className='mb-6 flex w-full items-center justify-between gap-4 px-5'>
+                    <Link href='/admin/products' className='rounded-full border border-white/80 bg-white px-4 py-2 font-semibold text-black shadow-sm transition hover:bg-gray-100'>← Back</Link>
+                    <h1 className='flex-1 text-center text-2xl font-bold text-white'>Edit {product.name}</h1>
+                    <div className='w-24' />
+                </div>
                 {/* <p className="text-center text-xs text-gray-400">
                     Page rendered at: {new Date().toISOString()} — fetched inStock: {String(product.inStock)}
                 </p> */}
