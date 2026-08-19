@@ -1,36 +1,138 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Storefront Website
+
+A full-stack storefront web application built with **Next.js**, designed to provide a fast, secure and maintainable website with integrated authentication, database functionality and email services.
+
+The project was built as a practical full-stack application rather than a static frontend, with a focus on clean architecture, secure user access and efficient server-side functionality.
+
+## Features
+
+* Responsive storefront interface built with **Next.js**
+* Server-side and client-side functionality using the Next.js App Router
+* Secure authentication using **Better Auth**
+* Private, invite-only user registration
+* Token-based invitation system to prevent unauthorised sign-ups
+* Persistent PostgreSQL database hosted with **Neon**
+* Database access and schema management using **Prisma ORM**
+* Transactional email functionality using **Resend**
+* Secure handling of environment variables and sensitive credentials
+* Efficient database queries and server-side operations
+* Production-ready structure designed for deployment and further expansion
+
+## Tech Stack
+
+* **Next.js**
+* **React**
+* **TypeScript**
+* **Prisma ORM**
+* **PostgreSQL / Neon**
+* **Better Auth**
+* **Resend**
+* **Tailwind CSS**
+
+## Authentication
+
+Authentication is handled using **Better Auth**.
+
+Unlike a standard public registration system, account creation is restricted to invited users. Invitations are generated using secure tokens, allowing administrators to control who can create an account.
+
+This helps prevent unauthorised registrations while maintaining a straightforward onboarding process for approved users.
+
+## Database
+
+The application uses a PostgreSQL database hosted through **Neon**.
+
+**Prisma ORM** is used as the database abstraction layer, providing:
+
+* Type-safe database queries
+* Schema-based database modelling
+* Database migrations
+* Simplified relationships between application data
+* Safer and more maintainable server-side database access
+
+## Email
+
+**Resend** is used for transactional email functionality within the application.
+
+This allows the application to send emails directly from server-side functionality without exposing sensitive credentials to the client.
+
+## Security
+
+The application was developed with security in mind, including:
+
+* Invite-only account creation
+* Token-based registration
+* Server-side authentication
+* Protected application routes
+* Environment variables for sensitive credentials
+* Server-side database access
+* Validation of user input and requests
 
 ## Getting Started
 
-First, run the development server:
+Clone the repository and install the dependencies:
+
+```bash
+npm install
+```
+
+Create a `.env` file and add the required environment variables for:
+
+```env
+DATABASE_URL=
+BETTER_AUTH_SECRET=
+BETTER_AUTH_URL=
+RESEND_API_KEY=
+```
+
+Additional environment variables may be required depending on the deployment configuration.
+
+Generate the Prisma client:
+
+```bash
+npx prisma generate
+```
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Database Development
 
-## Learn More
+After making changes to the Prisma schema, create and apply a migration with:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npx prisma migrate dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To inspect the database using Prisma Studio:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npx prisma studio
+```
 
-## Deploy on Vercel
+## Purpose
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This project was built primarily to demonstrate **full-stack application development and functionality**, with a greater focus on backend features, authentication, database design and application architecture than visual design.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+It demonstrates experience building and integrating:
+
+* Secure authentication and protected routes
+* Invite-only registration using tokens
+* Relational database functionality
+* Type-safe database access with Prisma
+* Transactional email services
+* Server-side application logic
+* Full-stack features using Next.js and TypeScript
+
+The interface is intentionally kept relatively simple, as the main objective of this project was to develop the underlying functionality and demonstrate how different parts of a production-style web application work together.
+
+For a project focused more heavily on **frontend design, responsive UI and visual presentation**, see **[mugz.dev](https://mugz.dev)** and the **[git repository](https://github.com/ymuth/mugz-dev)**.
+
